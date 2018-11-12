@@ -1,0 +1,12 @@
+.v_father {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn_login {
+  margin-left: 16rpx;
+  margin-right: 16rpx;
+}
+
