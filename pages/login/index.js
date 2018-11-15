@@ -10,10 +10,7 @@ Page({
    */
   data: {
     ic_eye_type:"md-eye-off",
-
-
     QUERY_BANNER: 110,
-
     i_type:"password"
 
     

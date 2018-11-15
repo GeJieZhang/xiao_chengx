@@ -1,12 +1,9 @@
 .container {
 	height: 100%;
+  width: 100%;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
-	padding: 200rpx 0;
-	box-sizing: border-box;
-	text-align: center;
+
 }
 
 .userinfo {
@@ -26,15 +23,3 @@
 	color: #aaa;
 }
 
-.usermotto {
-	margin-top: 150px;
-}
-
-.user-motto {
-	font-size: 24px;
-	margin-bottom: 20px;
-}
-
-.user-github {
-	color: #888;
-}

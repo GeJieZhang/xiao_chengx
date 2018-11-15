@@ -1,0 +1,25 @@
+<!-- 训练1 -->
+
+<view class='box'>
+
+<view class='row'>
+<view class='v1'></view>
+<view class='v2'></view>
+<view class='v3'></view>
+</view>
+
+<view class='row'>
+<view class='v'></view>
+<view class='v'></view>
+<view class='v'></view>
+</view>
+
+<view class='row'>
+<view class='v'></view>
+<view class='v'></view>
+<view class='v'></view>
+</view>
+
+
+
+</view>

@@ -1,15 +1,18 @@
 {
-
   "pages": [
+    "pages/index/index",
+    "pages/tables/index",
+    "pages/table/index",
     "pages/welcome/index",
     "pages/login/index",
-    "pages/index/index",
-    "pages/about/index"
 
-  
+    "pages/about/index",
+    "pages/test/index",
+    "pages/tables"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#f7f7f8",
+
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "Wux",
     "backgroundColor": "#efeff4",

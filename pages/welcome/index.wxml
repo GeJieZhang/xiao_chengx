@@ -1,10 +1,8 @@
 <view class='v_father'>
 
   <view class='v_father_bg'>
-
-    
     <wux-button class='btn_login' type="balanced" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" size='defult'>欢迎使用</wux-button>
-
+    <view wx:else>请升级微信版本</view>
   </view>
 
 

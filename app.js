@@ -9,6 +9,8 @@ App(
     //===================================================================================网络请求
     //================================================================================================
     apiHost: "https://api.cdhxxd.cn",
+    AppID:"wx81677b0306ec13eb",
+    AppSecret:"dc292b07963b90a6fd0098771e5d83f5",
 
     requestCount: [],
     verifyCount: [],
@@ -103,9 +105,13 @@ App(
         icon: 'loading'
       })
     },
+
+
     hideLoading: function() {
       wx.hideLoading();
     },
+
+
     showToptips(str) {
       $wuxToptips().warn({
         hidden: false,
