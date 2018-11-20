@@ -1,40 +1,32 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/tables/index",
-    "pages/table/index",
     "pages/welcome/index",
-    "pages/login/index",
-
+    "pages/user/login/index",
+    "pages/index/index",
     "pages/about/index",
-    "pages/test/index",
-    "pages/tables"
+    "pages/student/kb/kb"
   ],
   "window": {
-
-    "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "Wux",
-    "backgroundColor": "#efeff4",
-    "backgroundTextStyle": "dark"
+    "navigationBarBackgroundColor": "#3a3939",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#888888",
     "selectedColor": "#04BE02",
-    "borderStyle": "white",
-    "backgroundColor": "#f7f7f8",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/index/index",
         "iconPath": "assets/images/iconfont-demo.png",
         "selectedIconPath": "assets/images/iconfont-demo-active.png",
-        "text": "Demo"
+        "text": "首页"
       },
       {
         "pagePath": "pages/about/index",
         "iconPath": "assets/images/iconfont-about.png",
         "selectedIconPath": "assets/images/iconfont-about-active.png",
-        "text": "About"
+        "text": "我的"
       }
     ]
   },

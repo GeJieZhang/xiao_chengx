@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "课表",
+  "usingComponents": {
+    "wux-button": "../../../dist/button/index",
+    "wux-dialog": "../../../dist/dialog/index"
+  }
+}

@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "登录",
-  "usingComponents": {
-    "wux-button": "../../dist/button/index",
-    "wux-toptips": "../../dist/toptips/index",
-    "wux-icon": "../../dist/icon/index"
-
-  }
-}

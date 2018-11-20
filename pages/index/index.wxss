@@ -1,1 +1,75 @@
 /* pages/index/index.wxss */
+
+.father {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+/* 顶部banner */
+
+.swiperContainer {
+  width: 100%;
+  height: 350rpx;
+}
+
+.swiperimg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 导航按钮 */
+
+.tab {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-flow: column wrap;
+  background-color: #000;
+}
+
+.tab_item {
+  width: 50%;
+  height: 50%;
+  
+}
+
+.t1 {
+  background-color: #96f1e4;
+  
+}
+
+.t2 {
+  background-color: #acdbf3;
+}
+
+.t3 {
+  background-color: #c3f788;
+}
+
+.t4 {
+  background-color: #f3d6a4;
+}
+
+.tab_navigator {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab_img {
+  width: 80rpx;
+  height: 80rpx;
+  src: url(assets/images/iconfont-demo.png);
+}
+
+.tab_text{
+  font-size: 12pt;
+  color: #ffffff;
+  margin-top: 18rpx;
+}
