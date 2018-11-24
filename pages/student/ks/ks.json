@@ -1,9 +1,10 @@
 {
-  "navigationBarTitleText": "课表",
+  "navigationBarTitleText": "考试安排",
   "usingComponents": {
     "wux-button": "../../../dist/button/index",
     "wux-dialog": "../../../dist/dialog/index",
     "wux-floating-button": "../../../dist/floating-button/index",
-    "wux-cascader": "../../../dist/cascader/index"
+    "wux-cascader": "../../../dist/cascader/index",
+      "wux-icon": "../../../dist/icon/index"
   }
 }

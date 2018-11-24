@@ -8,6 +8,8 @@ Page({
     QUERY_BANNER: 110
   },
   onLoad: function() {
+
+    var that=this;
     // 查看是否授权
     wx.getSetting({
       success: function(res) {
@@ -16,7 +18,28 @@ Page({
           wx.getUserInfo({
             success: function(res) {
 
-              console.log(res.userInfo);
+    
+    
+              wx.setStorageSync("w_user", res.userInfo)
+
+              var cookie=wx.getStorageSync("cookie");
+
+
+              if(cookie==null||cookie==""){
+                //如果没有cookie跳转到登录
+                that.jumpLogin()
+              }else{
+                //如果有cookie跳转到首页
+                that.jumpIndex();
+
+
+              }
+
+
+       
+
+
+
             }
           })
         }
@@ -25,6 +48,7 @@ Page({
   },
 
   bindGetUserInfo: function(event) {
+    var that = this;
     console.log(event.detail.userInfo)
     //使用
     wx.getSetting({
@@ -43,33 +67,48 @@ Page({
                       iv: res.iv,
                       code: code
                     })
-                    //3.请求自己的服务器，解密用户信息 获取unionId等加密信息
-                    wx.request({
-                      url: 'https://xxxx.com/wxsp/decodeUserInfo', //自己的服务接口地址
-                      method: 'post',
-                      header: {
-                        'content-type': 'application/x-www-form-urlencoded'
-                      },
-                      data: {
-                        encryptedData: res.encryptedData,
-                        iv: res.iv,
-                        code: code
-                      },
-                      success: function(data) {
 
-                        //4.解密成功后 获取自己服务器返回的结果
-                        if (data.data.status == 1) {
-                          var userInfo_ = data.data.userInfo;
-                          console.log(userInfo_)
-                        } else {
-                          console.log('解密失败')
-                        }
 
-                      },
-                      fail: function() {
-                        console.log('系统错误')
-                      }
-                    })
+                    var cookie = wx.getStorageSync("cookie");
+
+
+                    if (cookie == null || cookie == "") {
+                      //如果没有cookie跳转到登录
+                      that.jumpLogin()
+                    } else {
+                      //如果有cookie跳转到首页
+                      that.jumpIndex();
+
+
+                    }
+
+                    // //3.请求自己的服务器，解密用户信息 获取unionId等加密信息
+                    // wx.request({
+                    //   url: 'https://xxxx.com/wxsp/decodeUserInfo', //自己的服务接口地址
+                    //   method: 'post',
+                    //   header: {
+                    //     'content-type': 'application/x-www-form-urlencoded'
+                    //   },
+                    //   data: {
+                    //     encryptedData: res.encryptedData,
+                    //     iv: res.iv,
+                    //     code: code
+                    //   },
+                    //   success: function(data) {
+
+                    //     //4.解密成功后 获取自己服务器返回的结果
+                    //     if (data.data.status == 1) {
+                    //       var userInfo_ = data.data.userInfo;
+                    //       console.log(userInfo_)
+                    //     } else {
+                    //       console.log('解密失败')
+                    //     }
+
+                    //   },
+                    //   fail: function() {
+                    //     console.log('系统错误')
+                    //   }
+                    // })
                   },
                   fail: function() {
                     console.log('获取用户信息失败')
@@ -100,6 +139,12 @@ Page({
       url: "../../pages/index/index"
     })
 
+  },
+
+  jumpLogin:function(){
+    wx.redirectTo({
+      url: '../../pages/user/login/index'
+    })
   },
   onSuccess: function(data, requestCode) {
     var that = this;

@@ -1,6 +1,3 @@
-import {
-  $wuxToptips
-} from '../../../dist/index'
 var app = getApp();
 
 Page({
@@ -14,6 +11,7 @@ Page({
     QUERY_LOGIN: "002",
     i_type: "password",
     cookie: "",
+    code_image: ""
 
 
   },
@@ -22,12 +20,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
- 
-    app.webCall("/v1/get/code", {
-      "type": 1001
 
-    }, this.data.QUERY_CODE, this.onSuccess, this.onErrorBefore);
 
+    this.getCode();
 
 
   },
@@ -44,20 +39,20 @@ Page({
 
     if (account == "" || account == null || account == undefined) {
 
-      that.showToptips("请输入学号");
+      app.showToptips("请输入学号");
 
       return;
     }
 
     if (password == "" || password == null || password == undefined) {
-      that.showToptips("请输入密码");
+      app.showToptips("请输入密码");
 
       return;
     }
 
     if (vcode == "" || vcode == null || vcode == undefined) {
 
-      that.showToptips("请输入验证码");
+      app.showToptips("请输入验证码");
       return;
     }
 
@@ -67,19 +62,11 @@ Page({
       "cookie": cookie,
       "jwid": account,
       "jwpass": password
-    }, this.data.QUERY_LOGIN, this.onSuccess, this.onErrorBefore);
+    }, this.data.QUERY_LOGIN, this.onSuccess);
 
 
 
 
-  },
-  showToptips: function(str) {
-    $wuxToptips().warn({
-      hidden: false,
-      text: str,
-      duration: 3000,
-
-    })
   },
   onSuccess: function(data, requestCode) {
 
@@ -88,37 +75,50 @@ Page({
       case this.data.QUERY_CODE:
         //获取Code
 
-        that.data.cookie = data.result.cookie;
+
+        var cookie = that.data.cookie = data.result.cookie;
+        var code_image = that.data.code_image = data.result.imgeUrl;
+        this.setData({
+          code_image,
+          cookie
+        });
+
+        console.log("图片地址：" + that.data.code_image);
 
         break;
       case this.data.QUERY_LOGIN:
         //登录
         console.log("登录");
 
-        if(data.code==0){
+        if (data.code == 0) {
+          try {
+            //缓存用户信息
+            wx.setStorageSync("user", data.result.user)
+            //缓存课表
+            wx.setStorageSync("kb", data.result.class)
+            //缓存学年
+            wx.setStorageSync("years", data.result.years)
+            //缓存学期
+            wx.setStorageSync("pers", data.result.pers)
+            //cookie
+            wx.setStorageSync("cookie", data.result.cookie)
 
-          wx.setStorageSync("kb", data.result)
 
+            console.log("课表："+wx.getStorageSync("kb")); 
+
+          } catch (e) {
+            console.log(e);
+          }
           wx.switchTab({
             url: '../../../pages/index/index'
           })
 
-        }else{
+        } else {
           app.showToptips(data.errorInfo)
         }
 
         break;
     }
-  },
-  onComplete: function(requestCode) {
-    console.log(requestCode);
-
-
-  },
-  onErrorBefore: function(message, requestCode) {
-
-    console.log(message);
-
   },
   f_eye: function() {
 
@@ -136,10 +136,16 @@ Page({
       ic_eye_type,
       i_type
     })
+  },
+  getCode: function() {
+    app.webCall("/v1/get/code", {
+      "type": 1001
 
-    console.log(this.ic_eye_type);
-
-
+    }, this.data.QUERY_CODE, this.onSuccess);
+  },
+  /**刷新验证码 */
+  refreshCode: function() {
+    this.getCode();
   }
 
 

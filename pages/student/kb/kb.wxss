@@ -20,7 +20,7 @@
 }
 
 .smalltext {
-  font-size: 8pt;
+  font-size: 23rpx;
   color: #fff;
   padding: 8rpx;
 }

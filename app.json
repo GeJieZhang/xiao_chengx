@@ -1,10 +1,16 @@
 {
+  "usingComponents": {
+    "wux-toptips": "../dist/toptips/index"
+  },
   "pages": [
     "pages/welcome/index",
     "pages/user/login/index",
     "pages/index/index",
     "pages/about/index",
-    "pages/student/kb/kb"
+    "pages/student/kb/kb",
+    "pages/user/college/college",
+    "pages/student/cg/cg",
+    "pages/student/ks/ks"
   ],
   "window": {
     "navigationBarBackgroundColor": "#3a3939",

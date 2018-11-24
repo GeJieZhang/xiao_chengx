@@ -1,0 +1,6 @@
+<view class="button-sp-area">
+  <button class="weui-btn" type="primary"  >四川交通职业技术学院</button>
+  <button class="weui-btn" type="primary" >西南财经大学</button>
+  <button class="weui-btn" type="primary" >中医药大学</button>
+  <button class="weui-btn" type="primary" >中石油</button>
+</view>

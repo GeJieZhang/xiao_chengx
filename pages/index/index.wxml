@@ -52,7 +52,7 @@
 
 
     <view class='tab_item t2'>
-      <navigator class='tab_navigator'>
+      <navigator class='tab_navigator' url='../../pages/student/cg/cg'>
         <image class='tab_img' src="/assets/images/index/cj.png"></image>
         <text class='tab_text'> 成绩</text>
       </navigator>
@@ -70,9 +70,9 @@
 
 
     <view class='tab_item t4'>
-      <navigator class='tab_navigator'>
+      <navigator class='tab_navigator' url='../../pages/student/ks/ks'>
         <image class='tab_img' src="/assets/images/index/xs.png"></image>
-        <text class='tab_text'>其他</text>
+        <text class='tab_text'>考试</text>
       </navigator>
     </view>
 

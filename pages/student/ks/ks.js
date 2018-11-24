@@ -1,55 +1,78 @@
-import {
-  $wuxDialog
-} from '../../../dist/index'
-//获取应用实例
-var app = getApp()
+// pages/student/ks/ks.js
+
+var app = getApp();
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    QUERY_CLASS: "001",
-  
-    itemHeight: 120,
-    colorArrays: ["#85B8CF", "#0A9A84", "#90C652", "#D8AA5A", "#FC9F9D", "#0A9A84", "#61BC69", "#12AEF3", "#E29AAD"],
-    wlist: [],
+    QUERY_KAOSHI:"001",
+    KaoShiList:[],
     years: [],
     pers: [],
     options1: [],
-    value1:"",
-    title:"课表",
+    value1: "",
+    title: "考试安排",
     buttons: [{
       openType: 'getUserInfo',
       label: '学期选择',
       icon: "../../assets/images/logo/iv_xueqi.png",
     }],
-  },
-  onLoad: function() {
 
-    var wlist = this.data.wlist = wx.getStorageSync("kb");
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
     var years = this.data.years = wx.getStorageSync("years");
     var pers = this.data.pers = wx.getStorageSync("pers");
+    var cookie = wx.getStorageSync("cookie");
+    var jwid = wx.getStorageSync("user").jwId;
     this.setData({
-      wlist,
       years,
       pers
     });
 
+
     this.initData();
-    wx.setNavigationBarTitle({
-      title: wx.getStorageSync("user").yearandper
-    })
-
+    //发起请求
+    app.webCall("/v1/get/user/test", {
+      "cookie": cookie,
+      "jwid": jwid,
+      "year": "",
+      "per": ""
+    }, this.data.QUERY_KAOSHI, this.onSuccess);
   },
-  /**点击课表**/
 
-  showDetail: function(event) {
-    var clickinfo = event.currentTarget.dataset.clickinfo;
+  /**网络请求onSuccess*/
+  onSuccess: function (data, requestCode) {
 
-    $wuxDialog().open({
-      closable: true,
-      resetOnClose: true,
-      title: '课程详情',
-      content: clickinfo
+    var that = this;
+    switch (requestCode) {
+      case this.data.QUERY_KAOSHI:
+        //获取Code
 
-    })
+        if (data.code == 0) {
+
+
+          var KaoShiList = that.data.KaoShiList=data.result;
+          that.setData({
+            KaoShiList
+          });
+
+
+        } else {
+          app.showToptips("查询考试失败");
+        }
+
+
+
+        break;
+
+
+    }
   },
 
   /**FloatButton的点击事件处理 */
@@ -63,15 +86,13 @@ Page({
 
     }
   },
-
-
   /**初始化学期数据 */
-  initData: function() {
+  initData: function () {
     var that = this;
-    var newPer=[];
+    var newPer = [];
     for (var i = 0; i < that.data.pers.length; i++) {
       var obj = new Object();
-      obj.label = "第" + that.data.pers[i].per+"学期";
+      obj.label = "第" + that.data.pers[i].per + "学期";
       obj.value = that.data.pers[i].per;
       newPer.push(obj);
     }
@@ -90,7 +111,7 @@ Page({
       options1: newData
     });
 
-  },	
+  },
 
 
   /**关闭学期选择 */
@@ -100,7 +121,7 @@ Page({
   /**学期选择回调 */
   onChange1(e) {
 
-  
+
     var value1 = this.data.value1 = e.detail.options.map((n) => n.value).join('/');
 
     var title = this.data.title = e.detail.options.map((n) => n.label).join(' ');
@@ -109,72 +130,66 @@ Page({
       value1,
       title
     });
-   
+
     wx.setNavigationBarTitle({
       title: this.data.title
     })
 
-    if (value1.indexOf("/")!=-1){
+    if (value1.indexOf("/") != -1) {
 
       console.log(title);
       console.log(wx.getStorageSync("user").yearandper);
-      if (title == wx.getStorageSync("user").yearandper){
+      if (title == wx.getStorageSync("user").yearandper) {
 
         app.showToptips("请选择不同的时间段！");
         return;
       }
-     
+
       var cookie = wx.getStorageSync("cookie");
       var jwid = wx.getStorageSync("user").jwId;
       var year = value1.split("/")[0];
       var per = value1.split("/")[1];
 
       //发起请求
-      app.webCall("/v1/get/user/class", {
+      app.webCall("/v1/get/user/test", {
         "cookie": cookie,
         "jwid": jwid,
         "year": year,
         "per": per
-      }, this.data.QUERY_CLASS, this.onSuccess);
+      }, this.data.QUERY_KAOSHI, this.onSuccess);
 
     }
 
 
   }, 
-  /**网络请求onSuccess*/
-  onSuccess: function (data, requestCode) {
+  itemClick: function (e) {
 
     var that = this;
-    switch (requestCode) {
-      case this.data.QUERY_CLASS:
-        //获取Code
 
-        if (data.code==0){
-          var wlist = that.data.wlist = data.result;
-          this.setData({
-            wlist
-          });
-        }else{
-          app.showToptips("查询课表失败");
-        }
+    console.log(e);
+    var hide = e.currentTarget.dataset.clickinfo;
 
-   
+    var index = e.currentTarget.dataset.index;
 
-        break;
-      
-    
+
+    if (hide) {
+
+      var KaoShiList = that.data.KaoShiList;
+
+      KaoShiList[index].isselect = false;
+
+      that.setData({
+        KaoShiList
+      });
+
+
+    } else {
+      var KaoShiList = that.data.KaoShiList;
+      KaoShiList[index].isselect = true;
+      that.setData({
+        KaoShiList
+      });
     }
-  },
-  //   /**网络请求onComplete*/
-  // onComplete: function (requestCode) {
-    
-
-
-  // },
-    /**网络请求onErrorBefore*/
-  onErrorBefore: function (message, requestCode) {
-    
 
   }
-
 })

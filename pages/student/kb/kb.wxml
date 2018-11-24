@@ -1,5 +1,13 @@
 <!--index.wxml-->
-<wux-dialog id="wux-dialog" />
+<!-- 顶部提示 -->
+<wux-toptips id="wux-toptips" />
+<!-- Dialog -->
+<wux-dialog id="wux-dialog"/>
+
+<!-- 悬浮按钮 -->
+<wux-floating-button position="bottomRight" theme="balanced" buttons="{{ buttons }}" bind:click="onClick" />
+<!-- 级联选择 -->
+<wux-cascader visible="{{ visible1 }}" default-value="{{ value1 }}" title="学期" options="{{ options1 }}" bind:close="onClose1" bind:change="onChange1" />
 <view class='father'>
   <view class="top">
 
@@ -13,7 +21,7 @@
 
 
       <view style="background-color:#D2E6B3;color:#ffffff;height:auto; ">
-        <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" class="left" wx:key="key"style="height:{{itemHeight}}rpx;">
+        <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" class="left" wx:key="key" style="height:{{itemHeight}}rpx;">
           {{item}}
         </view>
       </view>

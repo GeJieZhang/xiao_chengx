@@ -1,33 +1,79 @@
 .container {
-	height: 100%;
+  height: 100%;
   width: 100%;
-	display: flex;
-	flex-direction: column;
-
+  display: flex;
+  flex-direction: column;
 }
 
 .userinfo {
   width: 100%;
   height: auto;
-  min-height: 400rpx;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-  justify-content: center;
+  min-height: 150rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #fff;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
 }
 
 .userinfo-avatar {
-	width: 128rpx;
-	height: 128rpx;
-	margin: 20rpx;
-	border-radius: 50%;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
 }
 
-.userinfo-nickname {
-	color: #aaa;
+.userinfo-content {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: 128rpx;
+  margin: 20rpx;
+  flex: 1;
+
+}
+.userinfo-name{
+  font-size: 40rpx;
+  
+}
+.userinfo-gray{
+  font-size: 22rpx;
+  color: #a8a7a7;
+  
 }
 
-.weui-cells{
+.item-navigator{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  min-height: 80rpx;
+  background-color: #ffffff;
+  align-items: center;
 
+  margin-bottom: 40rpx;
 }
 
+.item-image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+}
+.item-text{
+  font-size: 35rpx;
+  margin-left: 20rpx;
+}
+
+.view-l{
+
+    width: 100%;
+    height: auto;
+ 
+    flex: 1;
+    
+  
+}
+.weui-btn{
+  width: 90%;
+  margin-bottom: 50rpx;
+}

@@ -1,0 +1,41 @@
+<!--pages/student/cg/cg.wxml-->
+<!-- 顶部提示 -->
+<wux-toptips id="wux-toptips" />
+
+
+<view class='father'>
+
+
+
+  <block wx:for="{{GradeList}}" wx:key="key">
+  <!-- 上面部分 -->
+  <view class='item'  catchtap='itemClick' data-clickinfo="{{item.isselect}}" data-index="{{index}}">
+
+  
+    <view class='item_title'>
+      <wux-icon class='item_image' type="{{item.isselect?'ios-arrow-down':'ios-arrow-forward'}}" size='18' />
+      <text class='item_text_title'>{{item.name}}</text>
+      <text class='item_text_grade'>{{item.grade}}</text>
+    </view>
+ 
+
+    <!-- 下面部分 -->
+    <view class='item_content' wx:if="{{item.isselect}}">
+      <text class='item_content_text'>课程代码：{{item.code}}</text>
+      <text class='item_content_text'>课程名称：{{item.name}}</text>
+      <text class='item_content_text'>课程性质：{{item.type}}</text>
+      <text class='item_content_text'>学分：{{item.credit}}</text>
+      <text class='item_content_text'>绩点：{{item.gradepoint}}</text>
+      <text class='item_content_text'>成绩：{{item.grade}}</text>
+    </view>
+
+  </view>
+</block>
+
+
+
+
+
+
+
+</view>

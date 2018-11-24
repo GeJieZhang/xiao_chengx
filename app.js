@@ -1,5 +1,7 @@
 // var requestCount = [];
-
+import {
+  $wuxToptips
+} from 'dist/index'
 App(
 
   {
@@ -8,8 +10,8 @@ App(
     //================================================================================================
     //===================================================================================网络请求
     //================================================================================================
-    // apiHost: "https://api.cdhxxd.cn",
-    apiHost: "http://192.168.0.189:8080",
+    apiHost: "https://api.cdhxxd.cn",
+    // apiHost: "http://192.168.0.189:8080",
     AppID:"wx81677b0306ec13eb",
     AppSecret:"dc292b07963b90a6fd0098771e5d83f5",
 
@@ -31,7 +33,7 @@ App(
       var params = arguments[1] ? arguments[1] : {};
       var requestCode = arguments[2] ? arguments[2] : -1;
       var onSuccess = arguments[3] ? arguments[3] : this.onSuccess;
-      var onErrorBefore = arguments[4] ? arguments[4] : this.onError;
+      var onErrorBefore = arguments[4] ? arguments[4] : function () { };
       var onComplete = arguments[5] ? arguments[5] : function () {};
       var isVerify = arguments[6] ? arguments[6] : false;
       var requestType = arguments[7] ? arguments[7] : "POST";
@@ -68,20 +70,23 @@ App(
           if (res.data) {
             if (res.statusCode == 200) { //访问成功
               onSuccess(res.data, requestCode);
-            } else if (re.statusCode == 300000001) { // 未登录
-              that.isLogin = false;
+            } else {//访问失败
+              that.showToptips("请求失败 , 请重试！")
               onErrorBefore(res.data.message, requestCode);
-            } else {
-              onErrorBefore(res.data.message == null ? "请求失败 , 请重试" : res.data.message, requestCode);
             }
           } else {
-            onErrorBefore("请求失败 , 请重试", requestCode);
+            onErrorBefore("请求失败 , 请重试！", requestCode);
+            that.showToptips("请求失败 , 请重试！")
           }
         },
         fail: function(res) {
           retry--;
           console.log("网络访问失败：" + JSON.stringify(res));
-          if (retry > 0) return that.webCall(urlPath, params, requestCode, onSuccess, onErrorBefore, onComplete, requestType, retry);
+          that.showToptips("网络访问失败！")
+          if (retry > 0){
+            that.showToptips("网络访问失败：正在重试！")
+            return that.webCall(urlPath, params, requestCode, onSuccess, onErrorBefore, onComplete, requestType, retry);
+          } 
         },
         complete: function(res) {
           that.hideLoading();
@@ -100,27 +105,28 @@ App(
     //================================================================================================
     //===================================================================================公用组件
     //================================================================================================
+    /**显示加载中 */
     showLoading: function() {
       wx.showLoading({
         title: '数据加载中',
-        icon: 'loading'
+        icon: 'loading',
       })
     },
 
-
+    /**隐藏加载中 */
     hideLoading: function() {
       wx.hideLoading();
     },
 
-
+    /**顶部提示 */
     showToptips(str) {
       $wuxToptips().warn({
         hidden: false,
-        text: 'str',
+        text: str,
         duration: 3000,
       
       })
-    }
+    },
 
 
   });
