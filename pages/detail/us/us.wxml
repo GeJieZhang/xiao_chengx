@@ -1,0 +1,8 @@
+<!--pages/detail/us/us.wxml-->
+  <wux-toptips id="wux-toptips" />
+<view class='father'>
+		<image class="userinfo-avatar" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1543922379950&di=74e50324425b87b05948743f1758e0f6&imgtype=0&src=http%3A%2F%2Fdesigner.525zb.com%2Favatars%2Fupload%2F1%2F66%2F13302.jpg" background-size="cover"></image>
+
+
+<text class='text'> 该小程序为温江大学城周边学院学生联合研发(四川交通职业技术学院，西南财经大学，中医大医学院)，为学院学子提供便捷的（学习服务，兼职，美食，周边游）等综合服务。</text>
+</view>

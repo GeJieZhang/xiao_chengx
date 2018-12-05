@@ -1,7 +1,7 @@
 <view class='father'>
 
 
-
+  <wux-toptips id="wux-toptips" />
   <!-- 顶部Banner -->
   <swiper bindtap="onSwiperTap" class="swiperContainer" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" vertical="{{vertical}}" indicator-active-color="{{select_color}}">
     <swiper-item>
@@ -62,9 +62,9 @@
 
     <view class='tab_item t3'>
 
-      <navigator class='tab_navigator'>
+      <navigator class='tab_navigator' url='../../pages/student/bk/bk'>
         <image class='tab_img' src="/assets/images/index/kjs.png"></image>
-        <text class='tab_text'>教室</text>
+        <text class='tab_text'>补考</text>
       </navigator>
     </view>
 

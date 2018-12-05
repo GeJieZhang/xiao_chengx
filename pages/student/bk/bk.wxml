@@ -1,0 +1,36 @@
+<!-- 顶部提示 -->
+<wux-toptips id="wux-toptips" />
+<!-- 悬浮按钮 -->
+<!-- <wux-floating-button position="bottomRight" theme="balanced" buttons="{{ buttons }}" bind:click="onClick" /> -->
+<!-- 级联选择 -->
+<!-- <wux-cascader visible="{{ visible1 }}" default-value="{{ value1 }}" title="学期" options="{{ options1 }}" bind:close="onClose1" bind:change="onChange1" /> -->
+
+<view class='father'>
+
+
+
+  <block wx:for="{{KaoShiList}}" wx:key="key">
+  <!-- 上面部分 -->
+  <view class='item'  catchtap='itemClick' data-clickinfo="{{item.isselect}}" data-index="{{index}}">
+
+  
+    <view class='item_title'>
+      <wux-icon class='item_image' type="{{item.isselect?'ios-arrow-down':'ios-arrow-forward'}}" size='18' />
+      <text class='item_text_title'>{{item.classname}}</text>
+      <text class='item_text_grade'></text>
+    </view>
+ 
+
+    <!-- 下面部分 -->
+    <view class='item_content' wx:if="{{item.isselect}}">
+     <text class='item_content_text'>考试科目：{{item.classname}}</text>
+      <text class='item_content_text'>考试地点：{{item.testplace}}</text>
+      <text class='item_content_text'>考试时间：{{item.time}}</text>
+      <text class='item_content_text'>考生姓名：{{item.username}}</text>
+      <text class='item_content_text'>考号：{{item.seatnumber}}</text>
+      
+    </view>
+
+  </view>
+</block>
+</view>

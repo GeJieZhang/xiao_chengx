@@ -1,0 +1,68 @@
+/* pages/student/cg/cg.wxss */
+.father{
+  width: 100%;
+  height: 100%;
+  background-color: #f5f4f4;
+}
+
+.item{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10rpx;
+ 
+
+}
+
+.item_title{
+  width: 100%;
+  height: auto;
+  min-height: 80rpx;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+.item_image{
+  margin-left: 16rpx;
+}
+.item_text_title{
+  font-size: 34rpx;
+  margin-left: 16rpx;
+  flex: 1;
+
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.item_text_grade{
+  font-size: 28rpx;
+  margin-right: 24rpx;
+  color: #21ce4c;
+}
+
+.item_content{
+  width: 100%;
+  height: auto;
+  min-height: 200rpx;
+  background-color: #f5f4f4;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+}
+
+.item_content_hide{
+  display: none;
+}
+
+.item_content_text{
+ font-size: 28rpx;
+ margin-left: 40rpx;
+
+}
+

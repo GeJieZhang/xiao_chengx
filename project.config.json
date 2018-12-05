@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 9,
 			"list": [
 				{
 					"id": 0,
@@ -78,7 +78,19 @@
 				{
 					"id": -1,
 					"name": "ks",
-					"pathName": "pages/student/ks/ks"
+					"pathName": "pages/student/ks/ks",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "us",
+					"pathName": "pages/detail/us/us",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "bk",
+					"pathName": "pages/student/bk/bk"
 				}
 			]
 		}

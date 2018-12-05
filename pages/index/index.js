@@ -1,3 +1,5 @@
+var app = getApp();
+
 Page({
   data: {
     //banner配置
@@ -72,6 +74,8 @@ Page({
       }
     ]
 
+  }, classRoom:function(){
+    app.showToptips("敬请期待");
   }
 
 

@@ -1,5 +1,4 @@
-// pages/student/cg/cg.js
-
+// pages/student/ks/ks.js
 
 var app = getApp();
 Page({
@@ -8,68 +7,58 @@ Page({
    * 页面的初始数据
    */
   data: {
-    QUERY_GRADE: "001",
-    GradeList: [],
-    name: "",
-    grade: "",
-    types: "",
-    credit: "",
-    gradepoint: "",
+    QUERY_KAOSHI:"001",
+    KaoShiList:[],
     years: [],
     pers: [],
     options1: [],
     value1: "",
+    title: "考试安排",
     buttons: [{
       openType: 'getUserInfo',
       label: '学期选择',
       icon: "../../assets/images/logo/iv_xueqi.png",
-    }]
-   
+    }],
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     var years = this.data.years = wx.getStorageSync("years");
     var pers = this.data.pers = wx.getStorageSync("pers");
+    var cookie = wx.getStorageSync("cookie");
+    var jwid = wx.getStorageSync("user").jwId;
     this.setData({
       years,
       pers
     });
 
+
     this.initData();
-    this.getGrade("","");
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
+    this.getBukao("","");
   },
 
   /**网络请求onSuccess*/
-  onSuccess: function(data, requestCode) {
+  onSuccess: function (data, requestCode) {
 
     var that = this;
     switch (requestCode) {
-      case this.data.QUERY_GRADE:
+      case this.data.QUERY_KAOSHI:
         //获取Code
 
         if (data.code == 0) {
 
 
-          var GradeList = that.data.GradeList = data.result;
-
+          var KaoShiList = that.data.KaoShiList=data.result;
           that.setData({
-            GradeList
+            KaoShiList
           });
 
 
         } else {
-          app.showToptips("查询成绩失败");
+          app.showToptips("查询考试失败");
         }
 
 
@@ -79,51 +68,19 @@ Page({
 
     }
   },
-  itemClick: function(e) {
 
-    var that = this;
+  /**FloatButton的点击事件处理 */
+  onClick(e) {
+    console.log('onClick', e.detail)
+    if (e.detail.index === 0) {
 
-    console.log(e);
-    var hide = e.currentTarget.dataset.clickinfo;
+      this.setData({
+        visible1: true
+      })
 
-    var index = e.currentTarget.dataset.index;
-
-
-    if (hide) {
-
-      var GradeList = that.data.GradeList;
-
-      GradeList[index].isselect=false;
-
-      that.setData({
-        GradeList
-      });
-
-
-    } else {
-      var GradeList = that.data.GradeList;
-      GradeList[index].isselect = true;
-      that.setData({
-        GradeList
-      });
     }
-
-  },getGrade:function( year,per){
-
-    var cookie = wx.getStorageSync("cookie");
-    var jwid = wx.getStorageSync("user").jwId;
-
-
-
-    app.webCall("/v1/get/grade", {
-      "cookie": cookie,
-      "jwid": jwid,
-      "year": year,
-      "per":per
-  
-    }, this.data.QUERY_GRADE, this.onSuccess);
-
-  },  /**初始化学期数据 */
+  },
+  /**初始化学期数据 */
   initData: function () {
     var that = this;
     var newPer = [];
@@ -149,7 +106,9 @@ Page({
     });
 
   },
-/**关闭学期选择 */
+
+
+  /**关闭学期选择 */
   onClose1() {
     this.setData({ visible1: false })
   },
@@ -185,31 +144,55 @@ Page({
       var year = value1.split("/")[0];
       var per = value1.split("/")[1];
 
-      // //发起请求
-      // app.webCall("/v1/get/user/test", {
-      //   "cookie": cookie,
-      //   "jwid": jwid,
-      //   "year": year,
-      //   "per": per
-      // }, this.data.QUERY_KAOSHI, this.onSuccess);
-
-
-      this.getGrade(year,per)
+      //发起请求
+      app.webCall("/v1/get/user/test", {
+        "cookie": cookie,
+        "jwid": jwid,
+        "year": year,
+        "per": per
+      }, this.data.QUERY_KAOSHI, this.onSuccess);
 
     }
 
 
   }, 
-  /**FloatButton的点击事件处理 */
-  onClick(e) {
-    console.log('onClick', e.detail)
-    if (e.detail.index === 0) {
+  itemClick: function (e) {
 
-      this.setData({
-        visible1: true
-      })
+    var that = this;
 
+    console.log(e);
+    var hide = e.currentTarget.dataset.clickinfo;
+
+    var index = e.currentTarget.dataset.index;
+
+
+    if (hide) {
+
+      var KaoShiList = that.data.KaoShiList;
+
+      KaoShiList[index].isselect = false;
+
+      that.setData({
+        KaoShiList
+      });
+
+
+    } else {
+      var KaoShiList = that.data.KaoShiList;
+      KaoShiList[index].isselect = true;
+      that.setData({
+        KaoShiList
+      });
     }
-  },
 
+  }, getBukao: function (year,per){
+    var cookie = wx.getStorageSync("cookie");
+    var jwid = wx.getStorageSync("user").jwId;
+    app.webCall("/v1/get/makeup/test", {
+      "cookie": cookie,
+      "jwid": jwid,
+      "year": year,
+      "per": per  
+    }, this.data.QUERY_KAOSHI, this.onSuccess);
+  }
 })

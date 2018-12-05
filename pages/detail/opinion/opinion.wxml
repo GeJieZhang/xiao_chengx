@@ -1,0 +1,29 @@
+<view class='v_father'>
+  <wux-toptips id="wux-toptips" />
+<form bindsubmit="formSubmit" bindreset="formReset"> 
+         <view class="weui-cells__title">标题</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入标题"   name="title"/>
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-cells__title">内容</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea" placeholder="请输入内容" style="height: 3.3em" name="content" />
+                    <view class="weui-textarea-counter">0/200</view>
+                </view>
+            </view>
+        </view>
+
+
+   <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" form-type='submit'>提交</button>
+    </view>
+
+    </form>
+</view>

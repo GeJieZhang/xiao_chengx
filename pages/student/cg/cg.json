@@ -1,6 +1,10 @@
 {
   "navigationBarTitleText": "成绩查询",
   "usingComponents": {
-      "wux-icon": "../../../dist/icon/index"
+      "wux-icon": "../../../dist/icon/index",
+      "wux-button": "../../../dist/button/index",
+      "wux-dialog": "../../../dist/dialog/index",
+      "wux-floating-button": "../../../dist/floating-button/index",
+      "wux-cascader": "../../../dist/cascader/index"
   }
 }

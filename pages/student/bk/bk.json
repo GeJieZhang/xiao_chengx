@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "补考查询",
+  "usingComponents": {
+    "wux-button": "../../../dist/button/index",
+    "wux-dialog": "../../../dist/dialog/index",
+    "wux-floating-button": "../../../dist/floating-button/index",
+    "wux-cascader": "../../../dist/cascader/index",
+      "wux-icon": "../../../dist/icon/index"
+  }
+}

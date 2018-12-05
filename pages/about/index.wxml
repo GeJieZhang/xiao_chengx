@@ -14,19 +14,19 @@
 
   <!-- 底部按键 -->
 
-  <navigator class='item-navigator'>
+  <navigator class='item-navigator'  url='../../pages/detail/opinion/opinion'>
 
 
-   <image class='item-image' src='../../assets/images/index/kjs.png'></image>
+   <image class='item-image' src='../../assets/images/logo/problem.png'></image>
    <text class='item-text'>问题反馈</text>
 
   </navigator>
 
 
-    <navigator class='item-navigator'>
+    <navigator class='item-navigator' url='../../pages/detail/us/us'>
 
-
-   <image class='item-image' src='../../assets/images/index/xs.png'></image>
+  
+   <image class='item-image' src='../../assets/images/logo/us.png' ></image>
    <text class='item-text'>关于我们</text>
 
   </navigator>

@@ -35,5 +35,7 @@ Page({
       url: '../../pages/user/login/index',
     })
 
-  }
+  },
+ 
+
 })
