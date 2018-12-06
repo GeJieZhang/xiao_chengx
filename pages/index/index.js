@@ -9,6 +9,9 @@ Page({
     duration: 1000,
     vertical: false,
     select_color: "#000000",
+    QUERY_BANNER:"001",
+    imageHead:"",
+    imageLists:[],
 
     //菜单
     remind: '加载中',
@@ -74,9 +77,48 @@ Page({
       }
     ]
 
-  }, classRoom:function(){
-    app.showToptips("敬请期待");
-  }
+  },
+
+
+  onLoad:function(e){
+
+
+    var imageHead = this.data.imageHead = app.apiHost+"/";
+    console.log(imageHead);
+    this.setData({
+      imageHead
+    });
+
+    app.webCall("/v1/index/topbanner", {}, this.data.QUERY_BANNER, this.onSuccess,null,null,null,"GET",null);
+  },
+  /**网络请求onSuccess*/
+  onSuccess: function (data, requestCode) {
+
+    var that = this;
+    switch (requestCode) {
+      case this.data.QUERY_BANNER:
+        //获取Code
+
+        if (data.code == 0) {
+
+          var imageLists = that.data.imageLists = data.result;
+
+          that.setData({
+            imageLists
+          });
+
+
+        } else {
+          app.showToptips("查询Banner失败");
+        }
+
+
+
+        break;
+
+
+    }
+  },
 
 
 })

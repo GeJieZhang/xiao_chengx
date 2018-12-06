@@ -4,18 +4,13 @@
   <wux-toptips id="wux-toptips" />
   <!-- 顶部Banner -->
   <swiper bindtap="onSwiperTap" class="swiperContainer" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" vertical="{{vertical}}" indicator-active-color="{{select_color}}">
+
+  <block wx:for="{{imageLists}}" wx:key="key">
     <swiper-item>
-      <image class="swiperimg" mode='aspectFill' src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542609322136&di=283d156394d36238b45b997017a84d3d&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01a21d575a17770000018c1bb53779.jpg"
-        data-newsId="2"></image>
+      <image class="swiperimg" mode='aspectFill' src="{{imageHead+item.imageUrl}}"
+        data-newsId="index"></image>
     </swiper-item>
-    <swiper-item>
-      <image class="swiperimg" mode='aspectFill' src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542609322923&di=18a887e1a4967d57d953b6d4223b30b9&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01d29c584677a7a8012060c8972431.jpg"
-        data-newsId="3"></image>
-    </swiper-item>
-    <swiper-item>
-      <image class="swiperimg" mode='aspectFill' src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542609322910&di=e643bc60afc0720116e2b595839cdfe4&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01fa6956621fa232f8754573c64474.jpg%402o.jpg"
-        data-newsId="4"></image>
-    </swiper-item>
+</block>
   </swiper>
 
 

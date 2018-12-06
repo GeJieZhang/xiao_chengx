@@ -103,7 +103,6 @@ Page({
             //cookie
             wx.setStorageSync("cookie", data.result.cookie)
 
-
             console.log("课表："+wx.getStorageSync("kb")); 
 
           } catch (e) {

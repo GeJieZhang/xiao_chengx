@@ -1,8 +1,16 @@
 <!--pages/detail/us/us.wxml-->
   <wux-toptips id="wux-toptips" />
 <view class='father'>
-		<image class="userinfo-avatar" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1543922379950&di=74e50324425b87b05948743f1758e0f6&imgtype=0&src=http%3A%2F%2Fdesigner.525zb.com%2Favatars%2Fupload%2F1%2F66%2F13302.jpg" background-size="cover"></image>
+		<image class="userinfo-avatar" src="../../../assets/images/logo.png" background-size="cover"></image>
 
 
-<text class='text'> 该小程序为温江大学城周边学院学生联合研发(四川交通职业技术学院，西南财经大学，中医大医学院)，为学院学子提供便捷的（学习服务，兼职，美食，周边游）等综合服务。</text>
+<!-- <text class='text'>该小程序【校温江】为温江大学城周边学院学生联合研发(四川交通职业技术学院，西南财经大学，中医大医学院)，为学院学子提供便捷的（教务助手,学习服务，兼职，美食，周边游）等综合服务。通过小程序媒介把温江的资源和大学生全链路的打通，形成一个良好生态闭环，以技术驱动让温江大学生更加便捷放松的享受生活享受学习。\n大学"0"界限，让生活随心所欲！</text> -->
+
+  <view class="weui-article">
+            <view class="weui-article__section">
+                <view class="weui-article__p">
+                      该小程序【校温江】为温江大学城周边学院学生联合研发(四川交通职业技术学院，西南财经大学，中医大医学院)，为学院学子提供便捷的（教务助手,学习服务，兼职，美食，周边游）等综合服务。通过小程序媒介把温江的资源和大学生全链路的打通，形成一个良好生态闭环，以技术驱动让温江大学生更加便捷放松的享受生活享受学习。\n大学"0"界限，让生活随心所欲！
+                    </view>
+            </view>
+        </view>
 </view>

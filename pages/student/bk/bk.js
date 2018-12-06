@@ -37,7 +37,10 @@ Page({
 
 
     this.initData();
-    this.getBukao("","");
+
+    var Q_year = wx.getStorageSync("user").year;
+    var Q_per = wx.getStorageSync("user").per;
+    this.getBukao(Q_year, Q_per);
   },
 
   /**网络请求onSuccess*/

@@ -38,11 +38,14 @@ Page({
 
     this.initData();
     //发起请求
+
+    var Q_year = wx.getStorageSync("user").year;
+    var Q_per = wx.getStorageSync("user").per;
     app.webCall("/v1/get/user/test", {
       "cookie": cookie,
       "jwid": jwid,
-      "year": "",
-      "per": ""
+      "year": Q_year,
+      "per": Q_per
     }, this.data.QUERY_KAOSHI, this.onSuccess);
   },
 

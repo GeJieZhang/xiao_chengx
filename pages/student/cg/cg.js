@@ -39,7 +39,10 @@ Page({
     });
 
     this.initData();
-    this.getGrade("","");
+    var Q_year=wx.getStorageSync("user").year;
+    var Q_per =wx.getStorageSync("user").per;
+
+    this.getGrade(Q_year, Q_per);
 
   },
 
