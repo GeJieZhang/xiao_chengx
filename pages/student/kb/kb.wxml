@@ -5,7 +5,7 @@
 <wux-dialog id="wux-dialog"/>
 
 <!-- 悬浮按钮 -->
-<wux-floating-button position="bottomRight" theme="balanced" buttons="{{ buttons }}" bind:click="onClick" />
+<wux-floating-button position="bottomRight" theme="balanced" buttons="{{ buttons }}" bind:click="onClick"  />
 <!-- 级联选择 -->
 <wux-cascader visible="{{ visible1 }}" default-value="{{ value1 }}" title="学期" options="{{ options1 }}" bind:close="onClose1" bind:change="onChange1" />
 <view class='father'>

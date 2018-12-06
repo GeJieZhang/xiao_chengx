@@ -50,11 +50,15 @@ Page({
       content: clickinfo
 
     })
+
+
+
   },
 
   /**FloatButton的点击事件处理 */
   onClick(e) {
     console.log('onClick', e.detail)
+    $wuxDialog().onClose();
     if (e.detail.index === 0) {
 
       this.setData({
