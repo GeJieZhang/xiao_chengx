@@ -33,9 +33,9 @@ Page({
     });
 
     this.initData();
-    wx.setNavigationBarTitle({
-      title: wx.getStorageSync("user").yearandper
-    })
+    // wx.setNavigationBarTitle({
+    //   title: wx.getStorageSync("user").yearandper
+    // })
 
   },
   /**点击课表**/
