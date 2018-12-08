@@ -5,7 +5,8 @@ Page({
   data: {
     //判断小程序的API，回调，参数，组件等是否在当前版本可用。
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    QUERY_BANNER: 110
+    QUERY_BANNER:"110",
+    CHECK_CODE:"002"
   },
   onLoad: function() {
 
@@ -24,15 +25,17 @@ Page({
 
               var cookie=wx.getStorageSync("cookie");
 
+              var jwid = wx.getStorageSync("user").jwId;
+
 
               if(cookie==null||cookie==""){
                 //如果没有cookie跳转到登录
                 that.jumpLogin()
               }else{
-                //如果有cookie跳转到首页
-                that.jumpIndex();
+                //验证cookie是否过期
+               
 
-
+                that.checkCode(cookie, jwid)
               }
 
 
@@ -70,14 +73,16 @@ Page({
 
 
                     var cookie = wx.getStorageSync("cookie");
-
+                    var jwid = wx.getStorageSync("user").jwId;
 
                     if (cookie == null || cookie == "") {
                       //如果没有cookie跳转到登录
                       that.jumpLogin()
                     } else {
-                      //如果有cookie跳转到首页
-                      that.jumpIndex();
+                      //验证cookie是否过期
+
+
+                      that.checkCode(cookie, jwid)
 
 
                     }
@@ -150,7 +155,18 @@ Page({
     var that = this;
     switch (requestCode) {
       case this.QUERY_BANNER:
-        console.log(data);
+        console.log(data)
+
+        break;
+
+      case this.CHECK_CODE:
+
+        if (data.code == 0) {
+          that.jumpIndex();
+        }else{
+          that.jumpLogin();
+        }
+
 
         break;
     }
@@ -163,6 +179,17 @@ Page({
   onErrorBefore: function(message, requestCode) {
 
     console.log(message);
+
+  }, checkCode: function (cookie, jwid){
+
+
+    //发起请求
+    app.webCall("/v1/check/cookie", {
+      "cookie": cookie,
+      "jwid": jwid,
+  
+    }, this.data.CHECK_CODE, this.onSuccess);
+
 
   }
 

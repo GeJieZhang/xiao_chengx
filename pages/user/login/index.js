@@ -11,7 +11,13 @@ Page({
     QUERY_LOGIN: "002",
     i_type: "password",
     cookie: "",
-    code_image: ""
+    code_image: "",
+    focus:"flase",
+    isChecked:false,
+    account:"",
+    password:"",
+    checkValue:"0"
+    
 
 
   },
@@ -20,7 +26,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var account=this.data.account=wx.getStorageSync("account", account);
+    var password = this.data.password =wx.getStorageSync("password", password);
 
+    this.setData({
+      account,
+      password
+    });
 
     this.getCode();
 
@@ -56,6 +68,13 @@ Page({
       return;
     }
 
+   if(that.data.isChecked){
+     wx.setStorageSync("account", account);
+     wx.setStorageSync("password", password);
+   }else{
+     wx.setStorageSync("account", "");
+     wx.setStorageSync("password", "");
+   }
     app.webCall("/v1/post/login", {
       "type": 1001,
       "code": vcode,
@@ -75,7 +94,7 @@ Page({
       case this.data.QUERY_CODE:
         //获取Code
 
-
+        if (data.code == 0) {
         var cookie = that.data.cookie = data.result.cookie;
         var code_image = that.data.code_image = data.result.imgeUrl;
         this.setData({
@@ -84,7 +103,7 @@ Page({
         });
 
         console.log("图片地址：" + that.data.code_image);
-
+        }
         break;
       case this.data.QUERY_LOGIN:
         //登录
@@ -127,11 +146,11 @@ Page({
     // console.log(this.ic_eye_type);
     // console.log(ic_eye_type);
     // console.log(that.ic_eye_type);
-    const ic_eye_type = that.data.ic_eye_type == "md-eye-off" ? "md-eye" : "md-eye-off";
+    var ic_eye_type = that.data.ic_eye_type == "md-eye-off" ? "md-eye" : "md-eye-off";
 
-    const i_type = that.data.i_type == "password" ? "text" : "password";
+    var i_type = that.data.i_type == "password" ? "text" : "password";
 
-    this.setData({
+    that.setData({
       ic_eye_type,
       i_type
     })
@@ -145,7 +164,30 @@ Page({
   /**刷新验证码 */
   refreshCode: function() {
     this.getCode();
-  }
+  },
+  niming: function (e) {
+    if (e.detail.value == "0") {
+
+      var isChecked=this.data.isChecked="true"
+      var checkValue = this.data.checkValue = "1"
+      
+      this.setData({
+        isChecked,
+        checkValue
+
+      });
+    }else {
+      var isChecked = this.data.isChecked = "false"
+      var checkValue = this.data.checkValue = "0"
+      this.setData({
+        isChecked,
+        checkValue
+
+      });
+    }
+
+   
+  },
 
 
 })

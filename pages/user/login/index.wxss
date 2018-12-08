@@ -10,3 +10,17 @@
   margin-right: 16rpx;
 }
 
+.remenber_password{
+  display:  flex;
+  flex-direction: row;
+
+  padding: 16rpx;
+
+
+}
+.check{
+    margin-left: 16rpx;
+
+ transform: scale(0.8,0.8);
+
+}

@@ -27,7 +27,7 @@
           <view class="weui-label">学号</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" name="account" value='20143376' placeholder="请输入学号" type='text' />
+          <input class="weui-input" name="account" value='{{account}}' placeholder="请输入学号" type='text' />
         </view>
       </view>
 
@@ -36,7 +36,7 @@
           <view class="weui-label">密码</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" name="password" value='wst123456' type="{{i_type}}" placeholder="请输入密码" />
+          <input class="weui-input" name="password" value='{{password}}'  focus="{{focus}}" type="{{i_type}}" placeholder="请输入密码" />
         </view>
         <view class="weui-cell__ft">
           <wux-icon class='ic_eye' type="{{ic_eye_type}}" size='24' bindtap='f_eye' />
@@ -54,6 +54,18 @@
         </view>
       </view>
     </view>
+
+    <view class='remenber_password'>
+<checkbox-group  bindchange="niming">
+        <checkbox class="check" value='{{checkValue}}' checked="{{isChecked}}"/>
+
+</checkbox-group>
+
+        <text>记住密码</text>
+    </view>
+
+
+
     <view class="weui-btn-area">
       <button class="weui-btn" type="primary" form-type='submit'>登录</button>
     </view>
