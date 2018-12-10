@@ -154,12 +154,12 @@ Page({
   onSuccess: function(data, requestCode) {
     var that = this;
     switch (requestCode) {
-      case this.QUERY_BANNER:
+      case that.data.QUERY_BANNER:
         console.log(data)
 
         break;
 
-      case this.CHECK_CODE:
+      case that.data.CHECK_CODE:
 
         if (data.code == 0) {
           that.jumpIndex();
