@@ -11,18 +11,18 @@
     </view>
     <view class="bd">
       <form class="login-form">
+      
         <view class="input-group {{userid_focus ? 'active' : ''}}">
           <text class="input-label">学号</text>
           <input type="number" id="userid" value='{{userid}}' placeholder="请输入你的学号" bindinput="useridInput" bindfocus="inputFocus" bindblur="inputBlur" />
         </view>
+
         <view class="input-group {{passwd_focus ? 'active' : ''}}">
           <text class="input-label">密码</text>
           <input password="true" id="passwd" value='{{passwd}}' placeholder="请输入你的密码" bindinput="passwdInput" bindfocus="inputFocus" bindblur="inputBlur" />
         </view>
 
         <view class='code'>
-
-
 
           <view class="input-group {{code_focus ? 'active' : ''}}">
             <text class="input-label">验证码</text>
