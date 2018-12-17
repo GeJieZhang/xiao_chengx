@@ -5,6 +5,8 @@
   "pages": [
     "pages/welcome/index",
     "pages/user/login/index",
+    "pages/user/logins/login",
+    "pages/user/login2/login",
     "pages/index/index",
     "pages/about/index",
     "pages/student/kb/kb",
@@ -13,7 +15,8 @@
     "pages/student/ks/ks",
     "pages/detail/us/us",
     "pages/detail/opinion/opinion",
-    "pages/student/bk/bk"
+    "pages/student/bk/bk",
+    "pages/jz/jz"
   ],
   "window": {
     "navigationBarBackgroundColor": "#3a3939",
@@ -30,6 +33,12 @@
         "iconPath": "assets/images/iconfont-demo.png",
         "selectedIconPath": "assets/images/iconfont-demo-active.png",
         "text": "首页"
+      },
+      {
+        "pagePath": "pages/jz/jz",
+        "iconPath": "assets/images/jz3.png",
+        "selectedIconPath": "assets/images/jz3_s.png",
+        "text": "兼职"
       },
       {
         "pagePath": "pages/about/index",

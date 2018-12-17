@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 12,
 			"list": [
 				{
 					"id": 0,
@@ -90,7 +90,25 @@
 				{
 					"id": -1,
 					"name": "bk",
-					"pathName": "pages/student/bk/bk"
+					"pathName": "pages/student/bk/bk",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "登录改",
+					"pathName": "pages/user/logins/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "222222",
+					"pathName": "pages/user/login2/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "hy",
+					"pathName": "pages/welcome/index"
 				}
 			]
 		}

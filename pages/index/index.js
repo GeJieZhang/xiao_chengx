@@ -118,7 +118,38 @@ Page({
 
 
     }
-  },
+  },kb:function(){
+
+
+    app.checklogin();
+    wx.navigateTo({
+      url: '../../pages/student/kb/kb'
+    })
+  }
+  , bk: function () {
+
+
+    app.checklogin();
+    wx.navigateTo({
+      url: '../../pages/student/bk/bk'
+    })
+  }
+  , cg: function () {
+
+
+    app.checklogin();
+    wx.navigateTo({
+      url: '../../pages/student/cg/cg'
+    })
+  }
+  , ks: function () {
+
+
+    app.checklogin();
+    wx.navigateTo({
+      url: '../../pages/student/ks/ks'
+    })
+  }
 
 
 })

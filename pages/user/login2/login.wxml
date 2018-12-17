@@ -1,0 +1,58 @@
+<!--login.wxml-->
+<view class="container">
+  <wux-toptips id="wux-toptips" />
+  <image class="title" src="../../../assets/images/user/title.png"></image>
+  <view class="content">
+    <view class="hd" style="transform:rotateZ({{angle}}deg);">
+      <image class="logo" src="../../../assets/images/user/logo.png"></image>
+      <image class="wave" src="../../../assets/images/user/wave.png" mode="aspectFill"></image>
+      <image class="wave wave-bg" src="../../../assets/images/user/wave.png" mode="aspectFill"></image>
+
+    </view>
+    <view class="bd">
+      <form class="login-form">
+        <view class="input-group {{userid_focus ? 'active' : ''}}">
+          <text class="input-label">学号</text>
+          <input type="number" id="userid" value='{{userid}}' placeholder="请输入你的学号" bindinput="useridInput" bindfocus="inputFocus" bindblur="inputBlur" />
+        </view>
+        <view class="input-group {{passwd_focus ? 'active' : ''}}">
+          <text class="input-label">密码</text>
+          <input password="true" id="passwd" value='{{passwd}}' placeholder="请输入你的密码" bindinput="passwdInput" bindfocus="inputFocus" bindblur="inputBlur" />
+        </view>
+
+        <view class='code'>
+
+
+
+          <view class="input-group {{code_focus ? 'active' : ''}}">
+            <text class="input-label">验证码</text>
+            <input type="text" id="code" placeholder="验证码" bindinput="codeInput" bindfocus="inputFocus" bindblur="inputBlur" />
+
+          </view>
+          <view class="weui-cell__ft">
+            <image class="weui-vcode-img" src="{{code_image}}" style="width: 108px; height:100rpx;" catchtap='refreshCode'></image>
+          </view>
+        </view>
+
+        <view class='remenber_password'>
+          <checkbox-group bindchange="niming">
+            <checkbox class="check" value='{{checkValue}}' checked="{{isChecked}}" />
+
+          </checkbox-group>
+
+          <text>记住密码</text>
+        </view>
+
+        <view class="confirm-btn" bindtap="bind">
+          <text>登录</text>
+        </view>
+      </form>
+
+    </view>
+
+
+
+  </view>
+
+
+</view>

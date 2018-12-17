@@ -1,14 +1,14 @@
-
-
 .v_father {
+  z-index: 10;
+  position: absolute;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   background-repeat: no-repeat;
-  background-size: 100% 100%; 
-  background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542624393420&di=2ae7693b504222628f2f60e8cd0fdc10&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01a48856b5d21d32f875520fcfde2f.jpg%401280w_1l_2o_100sh.jpg');
+  background-size: 100% 100%;
+
 }
 
 .v_father_bg {
@@ -16,11 +16,12 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
- margin-bottom: 100rpx;
+  margin-bottom: 100rpx;
 }
 
-/* .btn_login {
-
- margin-bottom: 24rpx;
-
-} */
+.bg {
+  z-index: 9;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}

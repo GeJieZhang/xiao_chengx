@@ -1,0 +1,48 @@
+<!--login.wxml-->
+<view class="container">
+
+    <image class="title" src="../../../assets/images/user/title.png"></image>
+
+    <view class="content">
+
+
+      <view class="hd" style="transform:rotateZ({{angle}}deg);">
+          <image class="logo" src="../../../assets/images/user/logo.png"></image>
+          <image class="wave" src="../../../assets/images/user/wave.png" mode="aspectFill"></image>
+          <image class="wave2 wave-bg" src="../../../assets/images/user/wave.png" mode="aspectFill"></image>
+      </view>
+
+
+
+
+<!-- 
+      <view class="bd">
+        <form class="login-form">
+          <view class="input-group {{userid_focus ? 'active' : ''}}">
+            <text class="input-label">帐号</text>
+            <input type="number" id="userid" maxlength="7" placeholder="请输入统一认证码" bindinput="useridInput" bindfocus="inputFocus" bindblur="inputBlur" />
+          </view>
+          <view class="input-group {{passwd_focus ? 'active' : ''}}">
+            <text class="input-label">密码</text>
+            <input password="true" id="passwd" placeholder="初始密码为身份证后6位" bindinput="passwdInput" bindfocus="inputFocus" bindblur="inputBlur" />
+          </view>
+       <view class="input-group {{passwd_focus ? 'active' : ''}}">
+            <text class="input-label">验证码</text>
+            <input password="true" id="passwd" placeholder="初始密码为身份证后6位" bindinput="passwdInput" bindfocus="inputFocus" bindblur="inputBlur" />
+          </view>
+
+        <view class="confirm-btn" bindtap="bind">
+            <text>确认绑定</text>
+        </view>
+
+        </form>
+
+
+
+      </view> -->
+
+
+    </view>
+
+
+</view>

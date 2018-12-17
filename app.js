@@ -32,8 +32,8 @@ App(
     webCall: function(urlPath, params, requestCode, onSuccess, onErrorBefore, onComplete, isVerify, requestType, retry) {
       var params = arguments[1] ? arguments[1] : {};
       var requestCode = arguments[2] ? arguments[2] : -1;
-      var onSuccess = arguments[3] ? arguments[3] : this.onSuccess;
-      var onErrorBefore = arguments[4] ? arguments[4] : function () { };
+      var onSuccess = arguments[3] ? arguments[3] : function () { };
+      var onErrorBefore = arguments[4] ? arguments[4] : function () {};
       var onComplete = arguments[5] ? arguments[5] : function () {};
       var isVerify = arguments[6] ? arguments[6] : false;
       var requestType = arguments[7] ? arguments[7] : "POST";
@@ -126,7 +126,22 @@ App(
         duration: 3000,
       
       })
-    }
+    },checklogin:function(){
+      var that=this;
+
+              var cookie=wx.getStorageSync("cookie");
+              if(cookie==null||cookie==""){
+                //如果没有cookie跳转到登录
+                that.jumpLogin()
+              }else{
+                return;
+              }
+    },
+      jumpLogin: function () {
+      wx.navigateTo({
+        url: '../../pages/user/login2/login'
+      })
+    },
 
 
   });

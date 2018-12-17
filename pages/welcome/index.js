@@ -5,12 +5,12 @@ Page({
   data: {
     //判断小程序的API，回调，参数，组件等是否在当前版本可用。
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    QUERY_BANNER:"110",
-    CHECK_CODE:"002"
+    QUERY_BANNER: "110",
+    CHECK_CODE: "002"
   },
   onLoad: function() {
 
-    var that=this;
+    var that = this;
     // 查看是否授权
     wx.getSetting({
       success: function(res) {
@@ -19,27 +19,27 @@ Page({
           wx.getUserInfo({
             success: function(res) {
 
-    
-    
+
+
               wx.setStorageSync("w_user", res.userInfo)
-
-              var cookie=wx.getStorageSync("cookie");
-
+              var cookie = wx.getStorageSync("cookie");
               var jwid = wx.getStorageSync("user").jwId;
+              that.checkCode(cookie, jwid)
+
+              // if(cookie==null||cookie==""){
+              //   //如果没有cookie跳转到登录
+              //   that.jumpLogin()
+              // }else{
+              //   //验证cookie是否过期
 
 
-              if(cookie==null||cookie==""){
-                //如果没有cookie跳转到登录
-                that.jumpLogin()
-              }else{
-                //验证cookie是否过期
-               
+              //   that.checkCode(cookie, jwid)
+              // }
 
-                that.checkCode(cookie, jwid)
-              }
+              that.jumpIndex();
 
 
-       
+
 
 
 
@@ -74,18 +74,19 @@ Page({
 
                     var cookie = wx.getStorageSync("cookie");
                     var jwid = wx.getStorageSync("user").jwId;
+                    that.checkCode(cookie, jwid)
 
-                    if (cookie == null || cookie == "") {
-                      //如果没有cookie跳转到登录
-                      that.jumpLogin()
-                    } else {
-                      //验证cookie是否过期
-
-
-                      that.checkCode(cookie, jwid)
+                    // if (cookie == null || cookie == "") {
+                    //   //如果没有cookie跳转到登录
+                    //   that.jumpLogin()
+                    // } else {
+                    //   //验证cookie是否过期
 
 
-                    }
+
+
+
+                    // }
 
                     // //3.请求自己的服务器，解密用户信息 获取unionId等加密信息
                     // wx.request({
@@ -146,9 +147,9 @@ Page({
 
   },
 
-  jumpLogin:function(){
+  jumpLogin: function() {
     wx.redirectTo({
-      url: '../../pages/user/login/index'
+      url: '../../pages/user/login2/login'
     })
   },
   onSuccess: function(data, requestCode) {
@@ -163,8 +164,9 @@ Page({
 
         if (data.code == 0) {
           that.jumpIndex();
-        }else{
-          that.jumpLogin();
+        } else {
+          wx.setStorageSync("cookie", "")
+          that.jumpIndex();
         }
 
 
@@ -180,14 +182,15 @@ Page({
 
     console.log(message);
 
-  }, checkCode: function (cookie, jwid){
+  },
+  checkCode: function(cookie, jwid) {
 
 
     //发起请求
     app.webCall("/v1/check/cookie", {
       "cookie": cookie,
       "jwid": jwid,
-  
+
     }, this.data.CHECK_CODE, this.onSuccess);
 
 
