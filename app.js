@@ -133,8 +133,9 @@ App(
               if(cookie==null||cookie==""){
                 //如果没有cookie跳转到登录
                 that.jumpLogin()
+                return false;
               }else{
-                return;
+                return true;
               }
     },
       jumpLogin: function () {

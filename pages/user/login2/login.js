@@ -25,37 +25,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var userid = this.data.userid = wx.getStorageSync("account", userid);
-    var passwd = this.data.passwd = wx.getStorageSync("password", passwd);
-    var isChecked = this.data.isChecked = wx.getStorageSync("loginIsChecked", isChecked);
-
-    this.setData({
-      userid,
-      passwd,
-      isChecked
-    });
-
-    this.getCode();
+ 
 
 
   },
-  onReady: function() {
-    // var _this = this;
-    // setTimeout(function(){
-    //   _this.setData({
-    //     remind: ''
-    //   });
-    // }, 1000);
-    // wx.onAccelerometerChange(function(res) {
-    //   var angle = -(res.x*30).toFixed(1);
-    //   if(angle>14){ angle=14; }
-    //   else if(angle<-14){ angle=-14; }
-    //   if(_this.data.angle !== angle){
-    //     _this.setData({
-    //       angle: angle
-    //     });
-    //   }
-    // });
+  onShow: function() {
+
+    var that=this;
+
+    setTimeout(function () {
+      var userid = that.data.userid = wx.getStorageSync("account", userid);
+      var passwd = that.data.passwd = wx.getStorageSync("password", passwd);
+      var isChecked = that.data.isChecked = wx.getStorageSync("loginIsChecked", isChecked);
+
+      that.setData({
+        userid,
+        passwd,
+        isChecked
+      });
+
+      that.getCode();
+    }, 1000);
+    
   },
   bind: function() {
     var that = this;

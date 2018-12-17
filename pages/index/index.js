@@ -121,34 +121,37 @@ Page({
   },kb:function(){
 
 
-    app.checklogin();
+    if (app.checklogin()){
     wx.navigateTo({
       url: '../../pages/student/kb/kb'
     })
+    }
   }
   , bk: function () {
 
 
-    app.checklogin();
+    if (app.checklogin()) {
     wx.navigateTo({
       url: '../../pages/student/bk/bk'
     })
+    }
   }
   , cg: function () {
 
-
-    app.checklogin();
+    if (app.checklogin()) {
     wx.navigateTo({
       url: '../../pages/student/cg/cg'
     })
+    }
   }
   , ks: function () {
 
 
-    app.checklogin();
+    if (app.checklogin()) {
     wx.navigateTo({
       url: '../../pages/student/ks/ks'
     })
+    }
   }
 
 

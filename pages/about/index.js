@@ -17,7 +17,8 @@ Page({
 
   },
 
-  onLoad: function() {
+
+  onShow: function() {
 
 
     var cookie = wx.getStorageSync("cookie");
@@ -75,22 +76,24 @@ Page({
 
     wx.setStorageSync("cookie", "");
 
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../../pages/user/login2/login',
     })
 
   },
   fk: function() {
-    app.checklogin();
+    if (app.checklogin()) {
     wx.navigateTo({
       url: '../../pages/detail/opinion/opinion'
     })
+    }
   },
   us: function() {
-    app.checklogin();
+    if (app.checklogin()) {
     wx.navigateTo({
       url: '../../pages/detail/us/us'
     })
+    }
   },
   login: function() {
     wx.navigateTo({
