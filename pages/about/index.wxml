@@ -1,39 +1,48 @@
 <view class="container">
 
   <!-- 头部信息 -->
-	<view class="userinfo" >
-		<image class="userinfo-avatar" src="{{ userImage }}" background-size="cover"></image>
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{ userImage }}" background-size="cover"></image>
     <view class='userinfo-content'>
 
-    <text class='userinfo-name'>{{userName}}</text>
+      <text class='userinfo-name'>{{userName}}</text>
 
       <text class='userinfo-gray'>学号：{{userNumber}}</text>
       <text class='userinfo-gray'>专业：{{userSpecialty}}</text>
     </view>
-	</view>
+  </view>
 
   <!-- 底部按键 -->
 
-  <view class='item-navigator'  bindtap='fk'>
+  <view class='item-navigator' bindtap='fk'>
 
 
-   <image class='item-image' src='../../assets/images/logo/problem.png'></image>
-   <text class='item-text'>问题反馈</text>
-
+    <image class='item-image' src='../../assets/images/logo/problem.png'></image>
+    <text class='item-text'>问题反馈</text>
   </view>
 
 
-    <view class='item-navigator' bindtap='us'>
-
-  
-   <image class='item-image' src='../../assets/images/logo/us.png' ></image>
-   <text class='item-text'>关于我们</text>
-
+  <view class='item-navigator' bindtap='us'>
+    <image class='item-image' src='../../assets/images/logo/us.png'></image>
+    <text class='item-text'>关于我们</text>
   </view>
-<view class="view-l">
- 
-  </view> 
 
-  <button class="weui-btn" type="warn"  catchtap='out' style='display:{{out}};'>退出登录</button>
-  <button class="weui-btn" type="primary"  catchtap='login' style='display:{{login}};'>登录</button>
+  <view class='item-navigator' bindtap='us'>
+    <image class='item-image' src='../../assets/images/logo/us.png'></image>
+    <text class='item-text'>添加兼职</text>
+  </view>
+
+
+
+  <view class='item-navigator' bindtap='user_jz'>
+    <image class='item-image' src='../../assets/images/logo/us.png'></image>
+    <text class='item-text'>我的兼职</text>
+  </view>
+
+
+  <view class="view-l">
+  </view>
+
+  <button class="weui-btn" type="warn" catchtap='out' style='display:{{out}};'>退出登录</button>
+  <button class="weui-btn" type="primary" catchtap='login' style='display:{{login}};'>登录</button>
 </view>

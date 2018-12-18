@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "兼职"
+  "navigationBarTitleText": "兼职",
+  "usingComponents": {
+    "wux-filterbar": "../../dist/filterbar/index"
+  }
 }

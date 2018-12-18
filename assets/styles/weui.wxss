@@ -75,7 +75,7 @@ icon {
   display: none;
 }
 .weui-cell_active {
-  background-color: #ECECEC;
+  background-color: #ffffff;
 }
 .weui-cell_primary {
   -webkit-box-align: start;

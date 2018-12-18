@@ -1,9 +1,9 @@
 <view class="page" style="{{ pageStyle }}">
-  <view class="page_hds">
+  <!-- <view class="page_hds">
 
     <image class='iv_bg' mode='aspectFill' src='../../assets/images/iv_jz2.jpg'></image>
     <view class='iv_content'></view>
-  </view>
+  </view> -->
 
 
   <view class="page__bd">
@@ -23,6 +23,15 @@
             <view class="weui-media-box__info meta">
               <view class="weui-media-box__info__meta v_money">薪酬: 300￥</view>
               <view class="weui-media-box__info__meta">人数: 5人</view>
+
+            </view>
+
+            <view class="weui-media-box__info meta">
+              <view class="weui-media-box__info__meta v_state">状态: 审核中</view>
+
+
+              <view class="weui-media-box__info__meta v_delete" catchtap='deletes'>删除</view>
+
             </view>
           </view>
         </view>

@@ -1,23 +1,18 @@
 Page({
   data: {
     items: [{
-        type: 'sort',
-        label: '时间',
+        type: 'text',
+        label: '审核中',
         value: 'time',
         groups: ['001'],
       },
       {
-        type: 'sort',
-        label: '薪酬',
+        type: 'text',
+        label: '审核通过',
         value: 'money',
         groups: ['002'],
       },
-      {
-        type: 'sort',
-        label: '人数',
-        value: 'person',
-        groups: ['003'],
-      },
+      
 
     ],
   },
@@ -94,4 +89,7 @@ Page({
 
 
   },
+  deletes:function(){
+    console.log("删除");
+  }
 })

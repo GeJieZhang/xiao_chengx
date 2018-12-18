@@ -100,6 +100,12 @@ Page({
       url: '../../pages/user/login2/login'
     })
 
+  },onPullDownRefresh:function(){
+    
+  }, user_jz:function(){
+    wx.navigateTo({
+      url: '../../pages/detail/user_jz/jz'
+    })
   }
 
 

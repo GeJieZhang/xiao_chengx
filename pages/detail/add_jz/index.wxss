@@ -1,0 +1,28 @@
+.remenber_password{
+  display:  flex;
+  flex-direction: row;
+  padding: 8rpx;
+  margin-top: 25rpx;
+
+
+}
+.check{
+ margin-left: 16rpx;
+
+ transform: scale(0.8,0.8);
+
+}
+
+.wei_time{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.wei_time_input{
+  flex: 1;
+}
+.weui-btns button{
+  font-size: 8pt;
+
+}

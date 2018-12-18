@@ -1,0 +1,113 @@
+<view class='v_father'>
+  <wux-toptips id="wux-toptips" />
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="weui-cells__title">标题</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入标题" name="title" value='{{title}}' bindinput='titleInput'/>
+        </view>
+      </view>
+    </view>
+
+
+
+    <view class="weui-cells__title">微信号</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入微信号" name="weixing" value='{{weixing}}' bindinput='weixingInput'/>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">手机号</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入手机号" name="phone" value='{{phone}}' bindinput='phoneInput'/>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">地址</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入地址" name="addrees" value='{{addrees}}' bindinput='addreesInput'/>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="weui-cells__title">日期</view>
+    <picker class="weui-btns" mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd wei_time">
+            <input class="weui-input wei_time_input" disabled='false' placeholder="请输选择日期" name="date" value='{{date}}' bindinput='dateInput' />
+            <wux-icon class='ic_eye' type="ios-arrow-forward" size='24' color='#dddcdc' />
+          </view>
+        </view>
+      </view>
+    </picker>
+
+
+    <view class="weui-cells__title">时间</view>
+    <picker class="weui-btns" mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd wei_time">
+            <input class="weui-input wei_time_input" disabled='false' placeholder="请输选择时间" name="time" value='{{time}}' bindinput='timeInput' />
+            <wux-icon class='ic_eye' type="ios-arrow-forward" size='24' color='#dddcdc' />
+          </view>
+        </view>
+      </view>
+    </picker>
+
+
+    <view class="weui-cells__title">薪酬</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入薪酬" name="money" value='{{money}}' bindinput='moneyInput' />
+        </view>
+      </view>
+    </view>
+
+
+        <view class="weui-cells__title">需要人数</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入人数" name="personNumber" value='{{personNumber}}' bindinput='personNumberInput' />
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">简介</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" placeholder="请输入兼职简介" style="height: 5.5em" name="content" value='{{content}}' bindinput='contentInput'/>
+
+        </view>
+      </view>
+    </view>
+
+    <view class='remenber_password'>
+      <checkbox-group bindchange="niming">
+        <checkbox class="check" value='{{checkValue}}' checked="{{isChecked}}" />
+
+      </checkbox-group>
+
+      <text>是否认证</text>
+    </view>
+
+
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" form-type='submit'>提交</button>
+    </view>
+
+  </form>
+</view>

@@ -24,6 +24,12 @@
 .v_money{
   color: #f1d328;
 }
+.v_delete{
+  color: #f83b2d;
+}
+.v_state{
+  color: #34da42;
+}
 .desc{
   margin-top: 10rpx;
 }
