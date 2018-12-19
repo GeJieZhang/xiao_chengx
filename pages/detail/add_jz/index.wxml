@@ -5,7 +5,7 @@
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="请输入标题" name="title" value='{{title}}' bindinput='titleInput'/>
+          <input class="weui-input" placeholder="请输入标题" maxlength='10' name="title" value='{{title}}' bindinput='titleInput'/>
         </view>
       </view>
     </view>
@@ -66,21 +66,24 @@
     </picker>
 
 
-    <view class="weui-cells__title">薪酬</view>
+    <view class="weui-cells__title">薪酬 列如（100/天）（20/小时） 单位：元</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="请输入薪酬" name="money" value='{{money}}' bindinput='moneyInput' />
+        <view class="weui-cell__bd set_item">
+          <input class="weui-input set_input" type="digit" placeholder="请输入薪酬" name="money" value='{{money}}' bindinput='moneyInput' />
+          <!-- <text class='link_color'>1天</text> -->
+          
         </view>
       </view>
     </view>
 
 
-        <view class="weui-cells__title">需要人数</view>
+        <view class="weui-cells__title">需要人数 单位：人</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="请输入人数" name="personNumber" value='{{personNumber}}' bindinput='personNumberInput' />
+        <view class="weui-cell__bd set_item">
+          <input class="weui-input set_input"type="number" placeholder="请输入人数" name="personNumber" value='{{personNumber}}' bindinput='personNumberInput' />
+             <text class='link_color'>人</text>
         </view>
       </view>
     </view>

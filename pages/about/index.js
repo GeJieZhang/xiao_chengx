@@ -106,6 +106,10 @@ Page({
     wx.navigateTo({
       url: '../../pages/detail/user_jz/jz'
     })
+  }, add_jz: function () {
+    wx.navigateTo({
+      url: '../../pages/detail/add_jz/index'
+    })
   }
 
 

@@ -27,16 +27,16 @@
     <text class='item-text'>关于我们</text>
   </view>
 
-  <view class='item-navigator' bindtap='us'>
+  <view class='item-navigator' bindtap='add_jz'>
     <image class='item-image' src='../../assets/images/logo/us.png'></image>
-    <text class='item-text'>添加兼职</text>
+    <text class='item-text'>发布兼职</text>
   </view>
 
 
 
   <view class='item-navigator' bindtap='user_jz'>
     <image class='item-image' src='../../assets/images/logo/us.png'></image>
-    <text class='item-text'>我的兼职</text>
+    <text class='item-text'>兼职管理</text>
   </view>
 
 

@@ -1,18 +1,15 @@
 /* pages/filterbar/index.wxss */
 
 .page_hds {
- 
   width: 100%;
   height: 300rpx;
-
 }
 
 .iv_bg {
   position: absolute;
- z-index: 1;
+  z-index: 1;
   width: 100%;
   height: 300rpx;
- 
 }
 
 .iv_content {
@@ -21,13 +18,104 @@
   width: 100%;
   height: 300rpx;
 }
-.v_money{
+
+.v_money {
   color: #f1d328;
 }
-.desc{
+
+.desc {
   margin-top: 10rpx;
 }
-.meta{
-   margin-top: 10rpx;
+
+.meta {
+  margin-top: 10rpx;
+}
+
+/**item**/
+
+.item {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  margin-bottom: 25rpx;
+}
+
+.item_title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.title {
+  flex: 1;
+  font-size: 16pt;
+  font-weight: bold;
+}
+.money{
+   font-size: 10pt;
+     color: #fc9917;
+font-weight: bold;
+}
+
+.item_content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 45rpx;
+  margin-right: 45rpx;
+  margin-bottom: 25rpx;
+  margin-top: 25rpx;
+}
+
+.address {
+  font-size: 10pt;
+    color: #666565;
+}
+
+.time {
+  font-size: 10pt;
+    color: #666565;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 15rpx;
+}
+
+.user_image {
+  width: 45rpx;
+  height: 45rpx;
+  border-radius: 50%;
+}
+
+.uer_name {
+  font-size: 10pt;
+  margin-left: 15rpx;
+     color: #666565;
+}
+
+.person_number {
+  flex: 1;
+  font-size: 10pt;
+      color: #666565;
+}
+
+.item_bloclk {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  margin-left: 25rpx;
+  align-items: center;
+}
+
+.state {
+  flex: 2;
+  font-size: 10pt;
+}
+
+.deleted {
+  font-size: 10pt;
+  color: #f01414;
 }
 

@@ -7,7 +7,41 @@
 
 
   <view class="page__bd">
-    <wux-filterbar items="{{ items }}" bind:change="onChange" bind:open="onOpen" bind:close="onClose" />
+
+ <wux-filterbar items="{{ items }}" bind:change="onChange" bind:open="onOpen" bind:close="onClose" />
+
+    <view class="item" wx:for="{{ repos }}" wx:key="key" data-index="{{index}}" catchtap='itemClick'>
+    
+      <view class='item_content'>
+        <view class='item_title'>
+          <text class='title'>Android</text>
+          <text class='money'>300/天</text>
+        </view>
+
+
+        <text class='address'>地址：锦绣大道南段</text>
+        <text class='time'>时间：2018-12-19 9：00</text>
+
+        <view class='userInfo'>
+          <image class="user_image" src="{{ item.owner.avatar_url }}" />
+          <text class='uer_name'>张先生</text>
+          <view class='item_bloclk'>
+            <text class='person_number'>人数：5人</text>
+            <text class='state' style='color:#14f026;'>状态：审核中</text>
+            <text class='deleted' catchtap='deletes'>删除</text>
+          </view>
+        </view>
+
+
+
+
+      </view>
+
+    </view>
+
+
+
+    <!-- <wux-filterbar items="{{ items }}" bind:change="onChange" bind:open="onOpen" bind:close="onClose" />
     <view class="weui-panel weui-panel_access">
       <view class="weui-panel__bd">
         <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" wx:for="{{ repos }}" wx:key="key" data-index="{{index}}" catchtap='itemClick'>
@@ -36,6 +70,6 @@
           </view>
         </view>
       </view>
-    </view>
+    </view> -->
   </view>
 </view>

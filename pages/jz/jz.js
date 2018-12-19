@@ -92,6 +92,10 @@ Page({
 
     console.log(index);
 
+    wx.navigateTo({
+      url: '../../pages/detail/jz_detail/index'
+    })
+
 
   },
 })
