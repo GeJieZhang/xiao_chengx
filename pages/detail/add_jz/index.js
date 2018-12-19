@@ -20,7 +20,9 @@ Page({
     content: "",
     certification: "0",
     isChecked: false,
-    checkValue: "0"
+    checkValue: "0",
+    moneyModle: "",
+    array: ['元/小时', '元/天'],
   },
 
   /**
@@ -37,18 +39,19 @@ Page({
     var personNumber = this.data.personNumber = wx.getStorageSync("jz_personNumber");
     var content = this.data.content = wx.getStorageSync("jz_content");
     var certification = this.data.certification = wx.getStorageSync("jz_certification");
+    var moneyModle = this.data.moneyModle = wx.getStorageSync("jz_moneyModle");
 
-    if (certification=="1"){
+    if (certification == "1") {
 
-      var isChecked=this.data.isChecked=true;
+      var isChecked = this.data.isChecked = true;
       var checkValue = this.data.checkValue = "1";
 
       this.setData({
         isChecked,
         checkValue
       })
-      
-    }else{
+
+    } else {
       var isChecked = this.data.isChecked = false;
       var checkValue = this.data.checkValue = "0";
 
@@ -70,7 +73,7 @@ Page({
       personNumber,
       content,
       certification,
-
+      moneyModle
     })
 
 
@@ -90,10 +93,15 @@ Page({
     var date = e.detail.value.date;
     var time = e.detail.value.time;
     var money = e.detail.value.money;
+
+    var moneyModle = e.detail.value.moneyModle;
     var personNumber = e.detail.value.personNumber;
     var content = e.detail.value.content;
     var certification = this.data.certification;
-
+    var userInfo = this.data.userInfo = wx.getStorageSync("w_user");
+    var userImage = userInfo.avatarUrl;
+    var user = wx.getStorageSync("user");
+    var userName = user.name;
 
 
     if (userid == "" || userid == null || userid == undefined) {
@@ -136,6 +144,12 @@ Page({
       return;
     }
 
+    if (moneyModle == "" || moneyModle == null || moneyModle == undefined) {
+
+      app.showToptips("请选择薪酬计算模式");
+
+      return;
+    }
     if (money == "" || money == null || money == undefined) {
 
       app.showToptips("请输入薪酬");
@@ -155,18 +169,22 @@ Page({
 
 
 
-    app.webCall("/v1/feedback/add", {
+    app.webCall("/v1/job/add", {
       "userid": userid,
       "title": title,
       "address": addrees,
       "wx": weixing,
       "number": personNumber,
       "context": content,
+      "moneyText": money + moneyModle,
       "money": money,
+      "claim": "无",
       "isCertifiation": certification,
-      "time": date+" "+time,
+      "time": date + " " + time,
       "wx": weixing,
       "phone": phone,
+      "userName": userName,
+      "userImage": userImage,
 
     }, this.data.POST_QUESTION, this.onSuccess);
 
@@ -191,7 +209,7 @@ Page({
     } else {
       var isChecked = this.data.isChecked = false;
       var checkValue = this.data.checkValue = "0"
-      var certification = this.data.certification="0";
+      var certification = this.data.certification = "0";
       wx.setStorageSync("jz_certification", "0")
       this.setData({
         isChecked,
@@ -267,6 +285,18 @@ Page({
     this.setData({
       time: e.detail.value
     })
+  },
+  bindPickerChange: function(e) {
+
+    var moneyModle = this.data.moneyModle = this.data.array[e.detail.value]
+
+    
+    wx.setStorageSync("jz_moneyModle", moneyModle)
+    this.setData({
+      moneyModle
+    })
+
+
   },
   /**网络请求onSuccess*/
   onSuccess: function(data, requestCode) {

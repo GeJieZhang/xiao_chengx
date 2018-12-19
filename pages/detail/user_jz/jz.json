@@ -1,5 +1,6 @@
 {
-  "navigationBarTitleText": "我的兼职",
+  "navigationBarTitleText": "兼职管理",
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "wux-filterbar": "../../../dist/filterbar/index"
   }

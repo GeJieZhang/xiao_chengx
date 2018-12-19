@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 16,
+			"current": 17,
 			"list": [
 				{
 					"id": 0,
@@ -132,7 +132,13 @@
 				{
 					"id": -1,
 					"name": "兼职详情",
-					"pathName": "pages/detail/jz_detail/index"
+					"pathName": "pages/detail/jz_detail/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "管理",
+					"pathName": "pages/detail/user_jz/jz"
 				}
 			]
 		}

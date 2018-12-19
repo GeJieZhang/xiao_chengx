@@ -65,8 +65,19 @@
       </view>
     </picker>
 
+    <view class="weui-cells__title">薪酬计算 （元/天）（元/小时）</view>
+     <picker bindchange="bindPickerChange" value="{{array[index]}}" range="{{array}}">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd wei_time">
+            <input class="weui-input wei_time_input" disabled='false' placeholder="请选择薪酬计算模式" name="moneyModle" value='{{moneyModle}}' bindinput='timeInput' />
+            <wux-icon class='ic_eye' type="ios-arrow-forward" size='24' color='#dddcdc' />
+          </view>
+        </view>
+      </view>
+    </picker>
 
-    <view class="weui-cells__title">薪酬 列如（100/天）（20/小时） 单位：元</view>
+    <view class="weui-cells__title">薪酬 单位：元</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__bd set_item">
@@ -76,6 +87,9 @@
         </view>
       </view>
     </view>
+
+
+
 
 
         <view class="weui-cells__title">需要人数 单位：人</view>

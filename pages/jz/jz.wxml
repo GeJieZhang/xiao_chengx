@@ -9,25 +9,26 @@
   <view class="page__bd">
     <wux-filterbar items="{{ items }}" bind:change="onChange" bind:open="onOpen" bind:close="onClose" />
 
-    <view class="item" wx:for="{{ repos }}" wx:key="key" data-index="{{index}}" catchtap='itemClick'>
+        <view class="item" wx:for="{{ dataList }}" wx:key="key" data-index="{{index}}" catchtap='itemClick'>
 
       <view class='item_content'>
         <view class='item_title'>
-          <text class='title'>Android</text>
-          <text class='money'>300/天</text>
+          <text class='title'>{{item.jobTitle}}</text>
+          <text class='money'>{{item.jobMoneystring}}</text>
         </view>
 
 
-        <text class='address'>地址：锦绣大道南段</text>
-        <text class='time'>时间：2018-12-19 9：00</text>
+        <text class='address'>地址：{{item.jobAddress}}</text>
+        <text class='time'>时间：{{item.jobTime}}</text>
 
         <view class='userInfo'>
-          <image class="user_image" src="{{ item.owner.avatar_url }}" />
-          <text class='uer_name'>张先生</text>
+          <image class="user_image" src="{{ item.jobUserimage }}" />
+          <text class='uer_name'>{{item.jobUsername}}</text>
           <view class='item_bloclk'>
-            <text class='person_number'>人数：5人</text>
-            <!-- <text class='state' style='color:#14f026;'>状态：审核中</text>
-            <text class='deleted'>删除</text> -->
+            <text class='person_number'>人数：{{item.jobNmuber}}人</text>
+        
+            <!-- <text class='state' style="color:{{item.jobIsenable=='0'?'#f1d73f':'#14f026'}};">状态：{{item.jobIsenable=='0'?'审核中':'审核通过'}}</text>
+            <text class='deleted' catchtap='deletes'>删除</text> -->
           </view>
         </view>
 

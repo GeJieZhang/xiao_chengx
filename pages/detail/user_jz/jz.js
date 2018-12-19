@@ -1,25 +1,37 @@
+
+var app = getApp();
 Page({
   data: {
     items: [{
         type: 'text',
         label: '审核中',
-        value: 'time',
+        value: '0',
         groups: ['001'],
       },
       {
         type: 'text',
         label: '审核通过',
-        value: 'money',
+        value: '1',
         groups: ['002'],
       },
-      
+
 
     ],
+    POST_QUESTION: "001",
+
+    dataList:[],
+    page:1,
+
+    state:0,
   },
   onLoad() {
-    this.getRepos()
+
+   
+    this.loadData(1,0);
   },
   onChange(e) {
+
+    var that=this;
     const {
       checkedItems,
       items
@@ -30,56 +42,35 @@ Page({
 
     checkedItems.forEach((n) => {
       if (n.checked) {
-        if (n.value === 'time') {
-          params.sort = n.value
-          params.order = n.sort === 1 ? 'asc' : 'desc'
-        } else if (n.value === 'money') {
-          params.sort = n.value
-          params.order = n.sort === 1 ? 'asc' : 'desc'
-        } else if (n.value === 'person') {
-          params.sort = n.value
-          params.order = n.sort === 1 ? 'asc' : 'desc'
+        if (n.value === '0') {
+         var page= that.data.page=1;
+          var sate =that.data.state = 0;
+
+          that.setData({
+            page,
+            sate
+          });
+
+
+          that.loadData(page, sate);
+        } else if (n.value === '1') {
+
+          var page = that.data.page = 1;
+          var sate = that.data.state =1;
+
+          that.setData({
+            page,
+            sate
+          });
+          that.loadData(page, sate);
+
         }
       }
     })
 
-    this.getRepos(params)
+  
   },
-  getRepos(params = {}) {
-    const language = params.language || 'javascript'
-    const query = params.query || 'react'
-    const q = `${query}+language:${language}`
-    const data = Object.assign({
-      q,
-    }, params)
-
-    wx.showLoading()
-    wx.request({
-      url: `https://api.github.com/search/repositories`,
-      data,
-      success: (res) => {
-        console.log(res)
-
-        wx.hideLoading()
-
-        this.setData({
-          repos: res.data.items.map((n) => Object.assign({}, n, {
-            date: n.created_at.substr(0, 7),
-          })),
-        })
-      },
-    })
-  },
-  onOpen(e) {
-    this.setData({
-      pageStyle: 'height: 100%; overflow: hidden',
-    })
-  },
-  onClose(e) {
-    this.setData({
-      pageStyle: '',
-    })
-  }, itemClick: function (e) {
+  itemClick: function(e) {
 
     var that = this;
 
@@ -89,7 +80,72 @@ Page({
 
 
   },
-  deletes:function(){
+  deletes: function() {
     console.log("删除");
+  },
+  onPullDownRefresh() {
+
+    var page=this.data.page=1;
+
+    this.loadData(page, this.data.state);
+
+   
+  },
+  /**
+ * 页面上拉触底事件的处理函数
+ */
+  onReachBottom: function () {
+    var page=this.data.page+=1;
+    this.setData({
+      page
+    })
+    this.loadData(page, this.data.state);
+
+  },
+  /**网络请求onSuccess*/
+  onSuccess: function (data, requestCode) {
+
+    var that = this;
+    switch (requestCode) {
+      case this.data.POST_QUESTION:
+        //获取Code
+        wx.stopPullDownRefresh()
+        if (data.code == 0) {
+
+
+          if(that.data.page==1){
+            
+            var dataList = that.data.dataList = data.result.list;
+          }else{
+            var dataList = that.data.dataList.concat(data.result.list);
+          }
+
+
+
+          this.setData({
+            dataList
+          });
+          console.log(dataList)
+
+        } else {
+          app.showToptips("兼职查询失败");
+        }
+
+
+
+        break;
+
+
+    }
+  },
+  loadData: function (page,state){
+    var userid = wx.getStorageSync("account", userid);
+    app.webCall("/v1/service/job", {
+      "page": page,
+      "limt": 10,
+      "userId": userid,
+      "state": state
+    
+    }, this.data.POST_QUESTION, this.onSuccess);
   }
 })
