@@ -10,6 +10,7 @@
     "pages/index/index",
     "pages/about/index",
     "pages/student/kb/kb",
+    "pages/student/image_page/index",
     "pages/user/college/college",
     "pages/student/cg/cg",
     "pages/student/ks/ks",

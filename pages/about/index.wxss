@@ -51,7 +51,7 @@
   background-color: #ffffff;
   align-items: center;
 
-  margin-bottom: 40rpx;
+  margin-bottom: 2rpx;
 }
 
 .item-image{

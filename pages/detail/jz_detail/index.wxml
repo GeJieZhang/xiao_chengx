@@ -28,7 +28,11 @@
     <text class='normal_text'>微信号：{{result.jobWx}}</text>
     <text class='normal_text'>电话号：{{result.jobPhone}}</text>
   </view>
-  <view class="confirm-btn" bindtap="bind">
+  <view class="confirm-btn">
     <text bindtap='callPhone'>立即沟通</text>
+  </view>
+
+  <view class="confirm-btn2">
+    <text bindtap='shouCang'>立即收藏</text>
   </view>
 </view>

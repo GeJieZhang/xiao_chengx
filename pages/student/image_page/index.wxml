@@ -1,0 +1,25 @@
+<view class="page">
+    <view class="weui-msg">
+        <view class="weui-msg__icon-area">
+            <image class='iv_iamge' mode='aspectFit' src='{{imageUrl}}' bindtap='imageClick'></image>
+        </view>
+        <view class="weui-msg__text-area">
+            <view class="weui-msg__title">查询成功</view>
+            <view class="weui-msg__desc">中医药大学目前仅支持图片展示，为了给用户更好的体验，后期我们将不断优化。</view>
+        </view>
+        <view class="weui-msg__opr-area">
+            <view class="weui-btn-area">
+                <button class="weui-btn" type="primary"  bindtap='imageClick'>查看大图</button>
+                <!-- <button class="weui-btn" type="default">辅助操作</button> -->
+            </view>
+        </view>
+        <view class="weui-msg__extra-area">
+            <view class="weui-footer">
+                <view class="weui-footer__links">
+                    <navigator url="" class="weui-footer__link">校温江</navigator>
+                </view>
+                <view class="weui-footer__text">xiao weng jiang</view>
+            </view>
+        </view>
+    </view>
+</view>

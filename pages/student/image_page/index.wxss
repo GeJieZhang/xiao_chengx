@@ -1,0 +1,8 @@
+page {
+  background-color: #fff;
+}
+
+.iv_iamge {
+  width: 90%;
+  height: 200rpx;
+}
