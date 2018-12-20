@@ -1,66 +1,71 @@
-// pages/detail/jz_detail/index.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    POST_QUESTION: "001",
+    jobId:"",
+    result:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+   var jobId=this.data.jobId= options.jobId;
+   this.setData({
+     jobId
+   })
 
+    this.loadData(jobId);
   },
+  /**网络请求onSuccess*/
+  onSuccess: function (data, requestCode) {
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+    var that = this;
+    switch (requestCode) {
+      case this.data.POST_QUESTION:
+        //获取Code
+        wx.stopPullDownRefresh()
+        if (data.code == 0) {
 
+          var result = that.data.result = data.result;
+     
+
+
+          this.setData({
+            result
+          });
+          console.log(result)
+
+        } else {
+          app.showToptips("兼职查询失败");
+        }
+
+
+
+        break;
+
+
+    }
   },
+  loadData: function (jobId) {
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+   
+    app.webCall("/v1/job/id", {
+      "jobId": jobId,
+      
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    }, this.data.POST_QUESTION, this.onSuccess);
+  },callPhone:function(){
+    wx.makePhoneCall({
+      phoneNumber: this.data.result.jobPhone
+    })
   }
+
+
+
+
 })

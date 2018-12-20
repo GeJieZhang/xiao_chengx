@@ -2,19 +2,19 @@
 
   <view class='item_content'>
     <view class='item_title'>
-      <text class='title'>Android</text>
-      <text class='money'>300/天</text>
+      <text class='title'>{{result.jobTitle}}</text>
+      <text class='money'>{{result.jobMoneystring}}</text>
     </view>
 
 
-    <text class='address'>地址：锦绣大道南段</text>
-    <text class='time'>时间：2018-12-19 9：00</text>
+    <text class='address'>地址：{{result.jobAddress}}</text>
+    <text class='time'>时间：{{result.jobTime}}</text>
 
     <view class='userInfo'>
-      <image class="user_image" src="{{ item.owner.avatar_url }}" />
-      <text class='uer_name'>张先生</text>
+      <image class="user_image" src="{{ result.jobUserimage }}" />
+      <text class='uer_name'>{{result.jobUsername}}</text>
       <view class='item_bloclk'>
-        <text class='person_number'>人数：5人</text>
+        <text class='person_number'>人数：{{result.jobNmuber}}人</text>
         <!-- <text class='state' style='color:#14f026;'>状态：审核中</text>
             <text class='deleted'>删除</text> -->
       </view>
@@ -22,13 +22,13 @@
 
     <view class='line'></view>
     <text class='title2'>兼职简介</text>
-    <text class='normal_text'>sdfsdfsa gewgweagsadgsda gasdggsag sddgsad gsadgasgadsgfsafsdfdsfsdaf safdasdfsadf asdfas daf sad </text>
+    <text class='normal_text'>{{result.jobContext}} </text>
     <view class='lines_w'></view>
     <text class='title2'>联系方式</text>
-    <text class='normal_text'>微信号：moji4597</text>
-    <text class='normal_text'>电话号：13540354597</text>
+    <text class='normal_text'>微信号：{{result.jobWx}}</text>
+    <text class='normal_text'>电话号：{{result.jobPhone}}</text>
   </view>
   <view class="confirm-btn" bindtap="bind">
-    <text>立即沟通</text>
+    <text bindtap='callPhone'>立即沟通</text>
   </view>
 </view>

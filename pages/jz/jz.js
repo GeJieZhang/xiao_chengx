@@ -26,10 +26,12 @@ Page({
     dataList: [],
     page: 1,
 
-    state: 0,
+    sort: "desc",
+    types: 1
+
   },
   onLoad() {
-    this.loadData(1, 0);
+    this.loadData(1, this.data.sort,this.data.types);
   },
   onChange(e) {
     const {
@@ -43,31 +45,63 @@ Page({
     checkedItems.forEach((n) => {
       if (n.checked) {
         if (n.value === 'time') {
-        
+          var page=this.data.page=1;
+          var nowSort = n.sort === 1 ? 'asc' : 'desc';
+          var types = this.data.types = 1;
 
+          var sort = this.data.sort = nowSort;
+          this.setData({
+            sort,
+            types,
+            page
+          })
+
+          this.loadData(1, this.data.sort, this.data.types);
 
         } else if (n.value === 'money') {
-      
+          var page = this.data.page = 1;
+          var nowSort = n.sort === 1 ? 'asc' : 'desc';
+          var types = this.data.types = 2;
+
+          var sort = this.data.sort = nowSort;
+          this.setData({
+            sort,
+            types,
+            page
+          })
+
+          this.loadData(1, this.data.sort, this.data.types);
 
         } else if (n.value === 'person') {
-         
-         
+          var page = this.data.page = 1;
+          var nowSort = n.sort === 1 ? 'asc' : 'desc';
+          var types = this.data.types = 3;
+
+          var sort = this.data.sort = nowSort;
+          this.setData({
+            sort,
+            types,
+            page
+          })
+
+          this.loadData(1, this.data.sort, this.data.types);
+
         }
       }
     })
 
-    this.getRepos(params)
+   
   },
   itemClick: function(e) {
 
     var that = this;
 
     var index = e.currentTarget.dataset.index;
-
-    console.log(index);
+    var jobId = e.currentTarget.dataset.jobid;
+    console.log(e);
 
     wx.navigateTo({
-      url: '../../pages/detail/jz_detail/index'
+      url: '../../pages/detail/jz_detail/index?jobId='+jobId
     })
 
 
@@ -76,7 +110,11 @@ Page({
 
     var page = this.data.page = 1;
 
-    this.loadData(page, this.data.state);
+    this.setData({
+      page
+    })
+
+    this.loadData(page, this.data.sort,this.data.types);
 
 
   },
@@ -88,8 +126,7 @@ Page({
     this.setData({
       page
     })
-    this.loadData(page, this.data.state);
-
+    this.loadData(page, this.data.sort, this.data.types);
   },
   /**网络请求onSuccess*/
   onSuccess: function(data, requestCode) {
@@ -127,13 +164,13 @@ Page({
 
     }
   },
-  loadData: function(page, state) {
-    var userid = wx.getStorageSync("account", userid);
-    app.webCall("/v1/service/job", {
+  loadData: function(page, sort, types) {
+    // var userid = wx.getStorageSync("account", userid);
+    app.webCall("/v1/job/sort", {
       "page": page,
       "limt": 10,
-      "userId": userid,
-      "state": state
+      "sort": sort,
+      "type": types
 
     }, this.data.POST_QUESTION, this.onSuccess);
   }

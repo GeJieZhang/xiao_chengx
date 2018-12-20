@@ -37,14 +37,15 @@ Page({
       var userid = that.data.userid = wx.getStorageSync("account", userid);
       var passwd = that.data.passwd = wx.getStorageSync("password", passwd);
       var isChecked = that.data.isChecked = wx.getStorageSync("loginIsChecked", isChecked);
-
+      var code_image = that.data.code_image ="../../../assets/images/vcode5.png";
       that.setData({
         userid,
         passwd,
-        isChecked
+        isChecked,
+        code_image
       });
 
-      that.getCode();
+      //that.getCode();
     }, 1000);
     
   },

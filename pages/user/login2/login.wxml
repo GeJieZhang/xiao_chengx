@@ -30,7 +30,7 @@
 
           </view>
           <view class="weui-cell__ft">
-            <image class="weui-vcode-img" src="{{code_image}}" style="width: 108px; height:100rpx;" catchtap='refreshCode'></image>
+            <image class="weui-vcode-img iv_code" src="{{code_image}}" style="width: 100px; height:90rpx;" catchtap='refreshCode'></image>
           </view>
         </view>
 

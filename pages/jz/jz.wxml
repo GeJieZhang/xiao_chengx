@@ -1,4 +1,5 @@
 <view class="page" style="{{ pageStyle }}">
+  <wux-toptips id="wux-toptips" />
   <view class="page_hds">
 
     <image class='iv_bg' mode='aspectFill' src='../../assets/images/iv_jz2.jpg'></image>
@@ -9,7 +10,7 @@
   <view class="page__bd">
     <wux-filterbar items="{{ items }}" bind:change="onChange" bind:open="onOpen" bind:close="onClose" />
 
-        <view class="item" wx:for="{{ dataList }}" wx:key="key" data-index="{{index}}" catchtap='itemClick'>
+        <view class="item" wx:for="{{ dataList }}" wx:key="key" data-index="{{index}}" catchtap='itemClick' data-jobId="{{item.jobId}}">
 
       <view class='item_content'>
         <view class='item_title'>
