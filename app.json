@@ -20,7 +20,9 @@
     "pages/jz/jz",
     "pages/detail/add_jz/index",
     "pages/detail/user_jz/jz",
-    "pages/detail/jz_detail/index"
+    "pages/detail/jz_detail/index",
+    "pages/detail/system_msgs/msg",
+    "pages/detail/jz_sc/sc"
   ],
   "window": {
     "navigationBarBackgroundColor": "#3a3939",

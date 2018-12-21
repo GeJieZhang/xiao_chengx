@@ -110,7 +110,17 @@ Page({
     wx.navigateTo({
       url: '../../pages/detail/add_jz/index'
     })
+  },
+   jz_sc: function () {
+    wx.navigateTo({
+      url: '../../pages/detail/jz_sc/sc'
+    })
   }
-
+  ,
+  system_msg: function () {
+    wx.navigateTo({
+      url: '../../pages/detail/system_msgs/msg'
+    })
+  }
 
 })

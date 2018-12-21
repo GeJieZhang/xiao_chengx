@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 19,
+			"current": 20,
 			"list": [
 				{
 					"id": 0,
@@ -150,7 +150,13 @@
 				{
 					"id": -1,
 					"name": "通用图片页",
-					"pathName": "pages/student/image_page/index"
+					"pathName": "pages/student/image_page/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "ll",
+					"pathName": "pages/user/logins/login"
 				}
 			]
 		}

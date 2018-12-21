@@ -1,0 +1,46 @@
+<view class="page" style="{{ pageStyle }}">
+  <!-- <view class="page_hds">
+
+    <image class='iv_bg' mode='aspectFill' src='../../assets/images/iv_jz2.jpg'></image>
+    <view class='iv_content'></view>
+  </view> -->
+  <wux-toptips id="wux-toptips" />
+
+  <view class="page__bd">
+
+    <!-- <wux-filterbar items="{{ items }}" bind:change="onChange" bind:open="onOpen" bind:close="onClose" /> -->
+
+    <view class="item" wx:for="{{ dataList }}" wx:key="key" data-index="{{index}}" catchtap='itemClick' data-jobId="{{item.jobId}}">
+
+      <view class='item_content'>
+        <view class='item_title'>
+          <text class='title'>{{item.jobTitle}}</text>
+          <text class='money'>{{item.jobMoneystring}}</text>
+        </view>
+
+
+        <text class='address'>地址：{{item.jobAddress}}</text>
+        <text class='time'>时间：{{item.jobTime}}</text>
+
+        <view class='userInfo'>
+          <image class="user_image" src="{{ item.jobUserimage }}" />
+          <text class='uer_name'>{{item.jobUsername}}</text>
+          <view class='item_bloclk'>
+            <text class='person_number'>人数：{{item.jobNmuber}}人</text>
+        
+            <text class='state' style="color:{{item.jobIsenable=='0'?'#f1d73f':'#14f026'}};">状态：{{item.jobIsenable=='0'?'审核中':'审核通过'}}</text>
+            <text class='deleted' catchtap='deletes' data-jobId="{{item.jobId}}" data-index="{{index}}">删除</text>
+          </view>
+        </view>
+
+
+
+
+      </view>
+
+    </view>
+  
+
+  </view>
+
+</view>

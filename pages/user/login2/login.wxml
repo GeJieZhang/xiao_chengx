@@ -1,6 +1,11 @@
 <!--login.wxml-->
 <view class="container">
   <wux-toptips id="wux-toptips" />
+  <view class="remind-box" wx:if="{{remind}}">
+    <image class="remind-img" src="../../../assets/images/timg.jpg"></image>
+  </view>
+  <block wx:else>
+
   <image class="title" src="../../../assets/images/user/title.png"></image>
   <view class="content">
     <view class="hd" style="transform:rotateZ({{angle}}deg);">
@@ -53,6 +58,6 @@
 
 
   </view>
-
+  </block>
 
 </view>

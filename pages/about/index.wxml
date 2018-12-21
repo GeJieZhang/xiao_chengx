@@ -40,12 +40,12 @@
 
 
 
-  <view class='item-navigator' bindtap='user_jz' style='margin-top:40rpx;'>
+  <view class='item-navigator' bindtap='jz_sc' style='margin-top:40rpx;'>
     <image class='item-image' src='../../assets/images/logo/us.png'></image>
     <text class='item-text'>我的收藏</text>
   </view>
 
-  <view class='item-navigator' bindtap='user_jz' style='margin-top:40rpx;'>
+  <view class='item-navigator' bindtap='system_msg' style='margin-top:40rpx;'>
     <image class='item-image' src='../../assets/images/logo/us.png'></image>
     <text class='item-text'>系统消息</text>
   </view>
