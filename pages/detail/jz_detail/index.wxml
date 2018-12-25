@@ -1,5 +1,5 @@
 <view class="item">
-
+<wux-toptips id="wux-toptips" />
   <view class='item_content'>
     <view class='item_title'>
       <text class='title'>{{result.jobTitle}}</text>
@@ -33,6 +33,6 @@
   </view>
 
   <view class="confirm-btn2">
-    <text bindtap='shouCang'>立即收藏</text>
+    <text bindtap='collectionJob'>立即收藏</text>
   </view>
 </view>

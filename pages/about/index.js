@@ -2,6 +2,7 @@ var app = getApp();
 
 Page({
   data: {
+    POST_QUESTION: "001",
     motto: 'Star me',
     github: 'https://github.com/wux-weapp/wux-weapp',
     userInfo: {},
@@ -11,7 +12,10 @@ Page({
     userNumber: "",
     userSpecialty: "",
     out: "none",
-    login: "none"
+    login: "none",
+
+    msgCount:0,
+
 
 
 
@@ -19,7 +23,7 @@ Page({
 
 
   onShow: function() {
-
+    this.loadMsg();
 
     var cookie = wx.getStorageSync("cookie");
     if (cookie != null && cookie != "") {
@@ -121,6 +125,41 @@ Page({
     wx.navigateTo({
       url: '../../pages/detail/system_msgs/msg'
     })
+  }, loadMsg: function () {
+    var userid = wx.getStorageSync("account", userid);
+
+    app.webCall("/v1/msg/no", {
+      "userId": userid
+
+
+    }, this.data.POST_QUESTION2, this.onSuccess);
+  },
+  /**网络请求onSuccess*/
+  onSuccess: function (data, requestCode) {
+
+    var that = this;
+    switch (requestCode) {
+      case this.data.POST_QUESTION:
+        //获取Code
+
+        if (data.code == 0) {
+
+          var msgCount = that.data.msgCount=data.result.count;
+
+          this.setData({
+            msgCount
+          })
+
+        } else {
+          app.showToptips("提交失败");
+        }
+
+
+
+        break;
+
+
+    }
   }
 
 })

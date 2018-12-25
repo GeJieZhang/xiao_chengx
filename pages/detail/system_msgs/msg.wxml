@@ -36,40 +36,41 @@
       </view> -->
 
 
+      <view wx:if="{{item.msgType=='1001'?'true':'false'}}">
+        <view class="weui-form-preview">
+          <view class="weui-form-preview__hd">
+            <view class="weui-form-preview__item">
+              <view class="weui-form-preview__label" style='font-size:14pt;color:#000000;'>{{item.msgTitle}}</view>
+              <!-- <view class="weui-form-preview__value">服务员招聘</view> -->
+            </view>
+          </view>
+          <view class="weui-form-preview__bd">
+            <view class="weui-form-preview__item">
+              <view class="weui-form-preview__label">标题</view>
+              <view class="weui-form-preview__value">{{item.msgContexta}}</view>
+            </view>
+            <view class="weui-form-preview__item">
+              <view class="weui-form-preview__label">地址</view>
+              <view class="weui-form-preview__value">{{item.msgContextb}}</view>
+            </view>
+            <view class="weui-form-preview__item">
+              <view class="weui-form-preview__label">时间</view>
+              <view class="weui-form-preview__value">{{item.msgContextc}}</view>
+            </view>
 
-      <view class="weui-form-preview">
-        <view class="weui-form-preview__hd">
-          <view class="weui-form-preview__item">
-            <view class="weui-form-preview__label" style='font-size:14pt;color:#000000;'>张先生 收藏了你的兼职</view>
-            <!-- <view class="weui-form-preview__value">服务员招聘</view> -->
+            <view class="weui-form-preview__item">
+              <view class="weui-form-preview__label">收藏人数</view>
+              <view class="weui-form-preview__value">当前已有
+                <text style='color:#2ac431;  font-weight: bold;'>{{item.msgContextd}}人</text>收藏</view>
+            </view>
+          </view>
+          <view class="weui-form-preview__ft">
+            <navigator url="" bindtap='detail_click' class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" data-jobId="{{item.jobId}}">查看详情</navigator>
           </view>
         </view>
-        <view class="weui-form-preview__bd">
-          <view class="weui-form-preview__item">
-            <view class="weui-form-preview__label">标题</view>
-            <view class="weui-form-preview__value">服务员招聘</view>
-          </view>
-          <view class="weui-form-preview__item">
-            <view class="weui-form-preview__label">地址</view>
-            <view class="weui-form-preview__value">锦绣大道南端</view>
-          </view>
-          <view class="weui-form-preview__item">
-            <view class="weui-form-preview__label">时间</view>
-            <view class="weui-form-preview__value">2018-12-21 9：00</view>
-          </view>
 
-                <view class="weui-form-preview__item">
-            <view class="weui-form-preview__label">收藏人数</view>
-            <view class="weui-form-preview__value">当前已有<text style='color:#2ac431;  font-weight: bold;'>5人</text>收藏</view>
-          </view>
-        </view>
-        <view class="weui-form-preview__ft">
-          <navigator url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">查看详情</navigator>
-        </view>
       </view>
-
     </view>
-
 
   </view>
 

@@ -187,11 +187,10 @@ Page({
   },
   loadData: function (page,state){
     var userid = wx.getStorageSync("account", userid);
-    app.webCall("/v1/service/job", {
+    app.webCall("/v1/favjob/userid", {
       "page": page,
       "limt": 10,
-      "userId": userid,
-      "state": state
+      "userId": userid
     
     }, this.data.POST_QUESTION, this.onSuccess);
   },

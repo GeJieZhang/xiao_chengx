@@ -187,11 +187,10 @@ Page({
   },
   loadData: function (page,state){
     var userid = wx.getStorageSync("account", userid);
-    app.webCall("/v1/service/job", {
+    app.webCall("/v1/msg/all", {
       "page": page,
       "limt": 10,
-      "userId": userid,
-      "state": state
+      "userId": userid
     
     }, this.data.POST_QUESTION, this.onSuccess);
   },
@@ -204,7 +203,15 @@ Page({
     }, this.data.POST_QUESTION2, this.onSuccess);
 
 
-  }, deleteDialog: function (jobid){
+  },detail_click:function(){
+    var jobid = e.currentTarget.dataset.jobid;
+    wx.navigateTo({
+      url: '../../../pages/detail/jz_detail/index?jobId=' + jobid
+    })
+  }
+  
+  
+  , deleteDialog: function (jobid){
   
       wx.showModal({
         title: '删除数据',
@@ -223,4 +230,5 @@ Page({
       });
    
   }
+  
 })

@@ -30,50 +30,55 @@
   height: 128rpx;
   margin: 20rpx;
   flex: 1;
+}
 
-}
-.userinfo-name{
+.userinfo-name {
   font-size: 40rpx;
-  
 }
-.userinfo-gray{
+
+.userinfo-gray {
   font-size: 22rpx;
   color: #a8a7a7;
-  
 }
 
-.item-navigator{
+.item-navigator {
   display: flex;
   flex-direction: row;
   width: 100%;
   height: auto;
   min-height: 80rpx;
-  background-color: #ffffff;
+  background-color: #fff;
   align-items: center;
-
   margin-bottom: 2rpx;
 }
 
-.item-image{
+.item-image {
   width: 40rpx;
   height: 40rpx;
   margin-left: 20rpx;
 }
-.item-text{
+
+.item-text {
   font-size: 35rpx;
   margin-left: 20rpx;
 }
 
-.view-l{
-
-    width: 100%;
-    height: auto;
- 
-    flex: 1;
-    
-  
+.view-l {
+  width: 100%;
+  height: auto;
+  flex: 1;
 }
-.weui-btn{
+
+.weui-btn {
   width: 90%;
   margin-bottom: 50rpx;
+}
+
+.msg {
+  background: #f13030;
+  border-radius: 20rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  font-size: 8pt;
+  color: white;
 }

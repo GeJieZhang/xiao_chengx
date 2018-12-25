@@ -28,8 +28,8 @@
           <view class='item_bloclk'>
             <text class='person_number'>人数：{{item.jobNmuber}}人</text>
         
-            <text class='state' style="color:{{item.jobIsenable=='0'?'#f1d73f':'#14f026'}};">状态：{{item.jobIsenable=='0'?'审核中':'审核通过'}}</text>
-            <text class='deleted' catchtap='deletes' data-jobId="{{item.jobId}}" data-index="{{index}}">删除</text>
+            <!-- <text class='state' style="color:{{item.jobIsenable=='0'?'#f1d73f':'#14f026'}};">状态：{{item.jobIsenable=='0'?'审核中':'审核通过'}}</text> -->
+            <!-- <text class='deleted' catchtap='deletes' data-jobId="{{item.jobId}}" data-index="{{index}}">删除</text> -->
           </view>
         </view>
 

@@ -6,6 +6,7 @@ Page({
    */
   data: {
     POST_QUESTION: "001",
+    POST_QUESTION2: "002",
     jobId:"",
     result:{}
   },
@@ -48,7 +49,19 @@ Page({
 
         break;
 
+      case this.data.POST_QUESTION2:
+        if (data.code == 0) {
 
+          wx.showToast({
+            title: '收藏成功',
+            icon: 'success',
+            duration: 2000
+          })
+        }else{
+          app.showToptips("收藏失败");
+        }
+
+      break
     }
   },
   loadData: function (jobId) {
@@ -63,6 +76,22 @@ Page({
     wx.makePhoneCall({
       phoneNumber: this.data.result.jobPhone
     })
+  }, collectionJob:function(){
+    var userid = wx.getStorageSync("account", userid);
+
+    app.webCall("/v1/favjob/add", {
+      "userId": userid,
+      "jobId": this.data.result.jobId,
+      "serviceId": this.data.result.jobUserid,
+      "userName:": this.data.result.jobUsername,
+      "jobTitle": this.data.result.jobTitle,
+      "jobAddress": this.data.result.jobAddress,
+      "jobTime": this.data.result.jobTime
+
+
+    }, this.data.POST_QUESTION2, this.onSuccess);
+
+
   }
 
 
