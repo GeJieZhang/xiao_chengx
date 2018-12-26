@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "添加兼职",
+  "navigationBarTitleText": "发布兼职",
     "usingComponents": {
       "wux-button": "../../../dist/button/index",
       "wux-icon": "../../../dist/icon/index"

@@ -203,7 +203,9 @@ Page({
     }, this.data.POST_QUESTION2, this.onSuccess);
 
 
-  },detail_click:function(){
+  },detail_click:function(e){
+
+  console.log(e);
     var jobid = e.currentTarget.dataset.jobid;
     wx.navigateTo({
       url: '../../../pages/detail/jz_detail/index?jobId=' + jobid

@@ -16,6 +16,8 @@ Page({
 
     msgCount:0,
 
+    userType:1001,
+
 
 
 
@@ -26,6 +28,11 @@ Page({
     this.loadMsg();
 
     var cookie = wx.getStorageSync("cookie");
+
+    var userType = wx.getStorageSync("userType");
+
+
+
     if (cookie != null && cookie != "") {
 
       var userInfo = this.data.userInfo = wx.getStorageSync("w_user");
@@ -43,7 +50,8 @@ Page({
         userNumber,
         userSpecialty,
         out,
-        login
+        login,
+        userType
       });
 
     } else {
@@ -65,7 +73,8 @@ Page({
         userNumber,
         userSpecialty,
         out,
-        login
+        login,
+        userType
       });
 
 
@@ -107,24 +116,32 @@ Page({
   },onPullDownRefresh:function(){
     
   }, user_jz:function(){
+    if (app.checklogin()) {
     wx.navigateTo({
       url: '../../pages/detail/user_jz/jz'
     })
+    }
   }, add_jz: function () {
+    if (app.checklogin()) {
     wx.navigateTo({
       url: '../../pages/detail/add_jz/index'
     })
+    }
   },
    jz_sc: function () {
+     if (app.checklogin()) {
     wx.navigateTo({
       url: '../../pages/detail/jz_sc/sc'
     })
+     }
   }
   ,
   system_msg: function () {
+    if (app.checklogin()) {
     wx.navigateTo({
       url: '../../pages/detail/system_msgs/msg'
     })
+    }
   }, loadMsg: function () {
     var userid = wx.getStorageSync("account", userid);
 

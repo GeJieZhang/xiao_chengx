@@ -98,7 +98,6 @@ Page({
       wx.setStorageSync("loginIsChecked", false);
     }
     app.webCall("/v1/post/login", {
-      "type": 1001,
       "code": vcode,
       "cookie": cookie,
       "jwid": account,
@@ -196,15 +195,18 @@ Page({
         if (data.code == 0) {
           try {
             //缓存用户信息
-            wx.setStorageSync("user", data.result.user)
+            wx.setStorageSync("user", data.result.user);
+
+            //用户类型
+            wx.setStorageSync("userType", data.result.user.type);
             //缓存课表
-            wx.setStorageSync("kb", data.result.class)
+            wx.setStorageSync("kb", data.result.class);
             //缓存学年
-            wx.setStorageSync("years", data.result.years)
+            wx.setStorageSync("years", data.result.years);
             //缓存学期
-            wx.setStorageSync("pers", data.result.pers)
+            wx.setStorageSync("pers", data.result.pers);
             //cookie
-            wx.setStorageSync("cookie", data.result.cookie)
+            wx.setStorageSync("cookie", data.result.cookie);
 
             console.log("课表：" + wx.getStorageSync("kb"));
 
@@ -223,8 +225,30 @@ Page({
     }
   },
   getCode: function () {
+
+    var that = this;
+    var account = that.data.userid;
+    var password = that.data.passwd;
+   
+
+    //var cookie = that.data.cookie;
+
+
+    if (account == "" || account == null || account == undefined) {
+
+      app.showToptips("请输入学号");
+
+      return;
+    }
+
+    if (password == "" || password == null || password == undefined) {
+      app.showToptips("请输入密码");
+
+      return;
+    }
+
     app.webCall("/v1/get/code", {
-      "type": 1001
+      "userId": account
 
     }, this.data.QUERY_CODE, this.onSuccess);
   },

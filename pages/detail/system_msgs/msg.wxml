@@ -65,7 +65,7 @@
             </view>
           </view>
           <view class="weui-form-preview__ft">
-            <navigator url="" bindtap='detail_click' class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" data-jobId="{{item.jobId}}">查看详情</navigator>
+            <view bindtap='detail_click' class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" data-jobId="{{item.jobId}}">查看详情</view>
           </view>
         </view>
 

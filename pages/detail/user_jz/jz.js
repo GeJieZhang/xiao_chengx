@@ -205,6 +205,8 @@ Page({
 
 
   }, deleteDialog: function (jobid){
+
+    var that=this;
   
       wx.showModal({
         title: '删除数据',
@@ -215,7 +217,7 @@ Page({
           console.log(res);
           if (res.confirm) {
             //确定
-            this.deleteData(jobid);
+            that.deleteData(jobid);
           } else {
           //取消
           }

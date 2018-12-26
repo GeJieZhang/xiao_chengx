@@ -1,5 +1,5 @@
 <view class="container">
-
+  <wux-toptips id="wux-toptips" />
   <!-- 头部信息 -->
   <view class="userinfo">
     <image class="userinfo-avatar" src="{{ userImage }}" background-size="cover"></image>
@@ -7,8 +7,13 @@
 
       <text class='userinfo-name'>{{userName}}</text>
 
-      <text class='userinfo-gray'>学号：{{userNumber}}</text>
-      <text class='userinfo-gray'>专业：{{userSpecialty}}</text>
+
+      
+
+      <text class='userinfo-gray' wx:if="{{userType!='2001'}}">学号：{{userNumber}}</text>
+      <text class='userinfo-gray' wx:if="{{userType!='2001'}}">专业：{{userSpecialty}}</text>
+      <text class='userinfo-gray' wx:if="{{userType=='2001'}}">账号：{{userNumber}}</text>
+      <text class='userinfo-gray' wx:if="{{userType=='2001'}}">类型：服务商</text>
     </view>
   </view>
 
@@ -26,14 +31,14 @@
   </view>
 
 
-  <view class='item-navigator' bindtap='add_jz' style='margin-top:40rpx;'>
+  <view class='item-navigator' bindtap='add_jz' style='margin-top:40rpx;' wx:if="{{userType=='2001'}}">
     <image class='item-image' src='../../assets/images/logo/iv_fb.png'></image>
     <text class='item-text'>发布兼职</text>
   </view>
 
 
 
-  <view class='item-navigator' bindtap='user_jz'>
+  <view class='item-navigator' bindtap='user_jz' wx:if="{{userType=='2001'}}">
     <image class='item-image' src='../../assets/images/logo/iv_gl.png'></image>
     <text class='item-text'>兼职管理</text>
   </view>
@@ -49,7 +54,7 @@
     <image class='item-image' src='../../assets/images/logo/iv_xx.png'></image>
     <text class='item-text'>系统消息</text>
 
-    <view  class='msg' style='margin-left:15rpx;margin-bottom:30rpx;' wx:if="{{msgCount>0}}">{{msgCount}}
+    <view class='msg' style='margin-left:15rpx;margin-bottom:30rpx;' wx:if="{{msgCount>0}}">{{msgCount}}
 
     </view>
 
