@@ -57,6 +57,13 @@ Page({
             icon: 'success',
             duration: 2000
           })
+          setTimeout(function () {
+          wx.navigateBack({
+            delta: -1
+          });
+          }, 500);
+         
+
         }else{
           app.showToptips("收藏失败");
         }

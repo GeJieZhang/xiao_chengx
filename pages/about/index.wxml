@@ -8,7 +8,7 @@
       <text class='userinfo-name'>{{userName}}</text>
 
 
-      
+
 
       <text class='userinfo-gray' wx:if="{{userType!='2001'}}">学号：{{userNumber}}</text>
       <text class='userinfo-gray' wx:if="{{userType!='2001'}}">专业：{{userSpecialty}}</text>

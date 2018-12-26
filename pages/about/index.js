@@ -149,7 +149,7 @@ Page({
       "userId": userid
 
 
-    }, this.data.POST_QUESTION2, this.onSuccess);
+    }, this.data.POST_QUESTION, this.onSuccess);
   },
   /**网络请求onSuccess*/
   onSuccess: function (data, requestCode) {
@@ -160,8 +160,12 @@ Page({
         //获取Code
 
         if (data.code == 0) {
+          data.result.count
 
+          console.log("======"+data.result.count);
           var msgCount = that.data.msgCount=data.result.count;
+
+          
 
           this.setData({
             msgCount
